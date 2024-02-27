@@ -263,6 +263,11 @@ extern "C" {
 #define	G_GNUC_UNUSED
 #endif	/* !__GNUC__ */
 
+#if     __GNUC__ >= 4
+#define G_GNUC_SENTINEL(x) __attribute__((__sentinel__(x)))
+#else
+#define G_GNUC_SENTINEL(x)
+#endif
 
 /* Wrap the gcc __PRETTY_FUNCTION__ and __FUNCTION__ variables with
  * macros, so we can refer to them as strings unconditionally.
@@ -1499,9 +1504,9 @@ gchar*	 g_strndup		(const gchar *str,
 gchar*	 g_strnfill		(guint	      length,
 				 gchar	      fill_char);
 gchar*	 g_strconcat		(const gchar *string1,
-				 ...); /* NULL terminated */
+				 ...) G_GNUC_SENTINEL(0); /* NULL terminated */
 gchar*   g_strjoin		(const gchar  *separator,
-				 ...); /* NULL terminated */
+				 ...) G_GNUC_SENTINEL(0); /* NULL terminated */
 gchar*	 g_strescape		(gchar	      *string);
 gpointer g_memdup		(gconstpointer mem,
 				 guint	       byte_size);
