@@ -100,6 +100,9 @@ _g_module_open (const gchar *file_name,
 static gpointer
 _g_module_self (void)
 {
+#if defined(__FreeBSD__) || (defined(__NetBSD__) && defined(RTLD_DEFAULT))
+  return RTLD_DEFAULT;
+#else
   gpointer handle;
   
   /* to query symbols from the program itself, special link options
@@ -111,6 +114,7 @@ _g_module_self (void)
     g_module_set_error (fetch_dlerror ());
   
   return handle;
+#endif
 }
 
 static void
