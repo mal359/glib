@@ -1,3 +1,34 @@
+This package was first debianized by Ben Gertzfield <che@debian.org> on
+Mon, 27 Jul 1998 14:11:04 -0700.
+
+It was downloaded from <http://ftp.gnome.org/pub/gnome/sources/glib/1.2/>.
+
+Copyright Holder: Peter Mattis <petm@xcf.berkeley.edu>,
+		  Spencer Kimball <spencer@xcf.berkeley.edu>,
+		  Josh MacDonald <jmacd@xcf.berkeley.edu>.
+
+License:
+
+	Copyright (C) Peter Mattis <petm@xcf.berkeley.edu>
+	Copyright (C) Spencer Kimball <spencer@xcf.berkeley.edu>
+	Copyright (C) Josh MacDonald <jmacd@xcf.berkeley.edu>
+
+	This library is free software; you can redistribute it and/or
+	modify it under the terms of the GNU Lesser General Public
+	License as published by the Free Software Foundation; either
+	version 2 of the License, or (at your option) any later version.
+
+	This library is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+	Lesser General Public License for more details.
+
+	You should have received a copy of the GNU Lesser General Public
+	License along with this library; if not, write to the Free Software
+	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+
+On Debian systems, the complete text of the GNU Lesser General Public License
+can be found in /usr/share/common-licenses/LGPL- file.
 This package was debianized by Ben Gertzfield <che@debian.org>
 on Tue, 17 Nov 1998 00:16:10 -0800
 

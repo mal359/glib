@@ -1,0 +1,11 @@
+Document: libglib1.2-dev
+Title: GLib C library documentation
+Author: Gregory McLean
+Abstract: Library reference for GLib C library of useful functions
+ This document goes into detail on each function of the GLib C library of useful
+ functions to deal with common structures like lists, trees, et cetera.
+Section: Apps/Programming
+
+Format: HTML
+Index: /usr/share/doc/libglib1.2-dev/glib_toc.html
+Files: /usr/share/doc/libglib1.2-dev/glib.html

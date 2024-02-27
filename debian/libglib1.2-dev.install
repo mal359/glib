@@ -1,0 +1,10 @@
+/usr/bin
+/usr/include/*
+/usr/lib/*.a
+/usr/lib/*.la
+/usr/lib/*.so
+/usr/lib/glib
+/usr/lib/pkgconfig/*
+/usr/share/aclocal
+/usr/share/info
+/usr/share/man
