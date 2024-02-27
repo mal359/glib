@@ -1591,7 +1591,7 @@ g_bit_nth_lsf (guint32 mask,
   do
     {
       nth_bit++;
-      if (mask & (1 << (guint) nth_bit))
+      if (mask & ((guint) 1 << nth_bit))
 	return nth_bit;
     }
   while (nth_bit < 32);
@@ -1611,7 +1611,7 @@ g_bit_nth_msf (guint32 mask,
   do
     {
       nth_bit--;
-      if (mask & (1 << (guint) nth_bit))
+      if (mask & ((guint) 1 << nth_bit))
 	return nth_bit;
     }
   while (nth_bit > 0);
