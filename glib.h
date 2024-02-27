@@ -272,7 +272,7 @@ extern "C" {
 /* Wrap the gcc __PRETTY_FUNCTION__ and __FUNCTION__ variables with
  * macros, so we can refer to them as strings unconditionally.
  */
-#ifdef	__GNUC__
+#if defined (__GNUC__) && (__GNUC__ < 3)
 #define	G_GNUC_FUNCTION		__FUNCTION__
 #define	G_GNUC_PRETTY_FUNCTION	__PRETTY_FUNCTION__
 #else	/* !__GNUC__ */
@@ -535,7 +535,7 @@ typedef gint32	GTime;
 	 if (__builtin_constant_p (val))		\
 	   __v = GUINT16_SWAP_LE_BE_CONSTANT (val);	\
 	 else						\
-	   __asm__ __const__ ("rorw $8, %w0"		\
+	   __asm__ ("rorw $8, %w0"			\
 			      : "=r" (__v)		\
 			      : "0" ((guint16) (val)));	\
 	__v; }))
@@ -548,7 +548,7 @@ typedef gint32	GTime;
 	    if (__builtin_constant_p (val))			\
 	      __v = GUINT32_SWAP_LE_BE_CONSTANT (val);		\
 	  else							\
-	    __asm__ __const__ ("rorw $8, %w0\n\t"		\
+	    __asm__ ("rorw $8, %w0\n\t"				\
 			       "rorl $16, %0\n\t"		\
 			       "rorw $8, %w0"			\
 			       : "=r" (__v)			\
@@ -561,7 +561,7 @@ typedef gint32	GTime;
 	    if (__builtin_constant_p (val))			\
 	      __v = GUINT32_SWAP_LE_BE_CONSTANT (val);		\
 	  else							\
-	    __asm__ __const__ ("bswap %0"			\
+	    __asm__ ("bswap %0"					\
 			       : "=r" (__v)			\
 			       : "0" ((guint32) (val)));	\
 	__v; }))
