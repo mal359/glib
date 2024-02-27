@@ -13,6 +13,8 @@ glib-config: glib-config.in
 
 INCLUDES = -DG_LOG_DOMAIN=g_log_domain_glib @GLIB_DEBUG_FLAGS@
 
+AM_CFLAGS = -prefer-pic
+
 EXTRA_DIST = \
 	glib.m4			\
 	glib.spec.in		\
