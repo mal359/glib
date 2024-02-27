@@ -901,7 +901,7 @@ main (int   argc,
   g_warning ("harmless warning with parameters: %d %s %#x", 42, "Boo", 12345);
   g_message ("the next warning is a test:");
   string = NULL;
-  g_print (string);
+  g_print ("%s", string);
 
   g_print ("checking endian macros (host is ");
 #if G_BYTE_ORDER == G_BIG_ENDIAN
