@@ -19,6 +19,7 @@ libgthread_la_LDFLAGS = \
 	-release $(LT_RELEASE) \
 	-export-dynamic
 
+libgthread_la_DEPENDENCIES = $(libglib)
 libgthread_la_LIBADD = @G_THREAD_LIBS@ $(libglib)
 
 noinst_PROGRAMS = testgthread
