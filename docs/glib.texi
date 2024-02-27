@@ -61,9 +61,9 @@ except that this permission notice may be stated in a translation
 approved by Gregory McLean.
 @end titlepage
 
-@dircategory Library of useful routines for 'C' programing
+@dircategory Libraries:
 @direntry
-* GLIB: (glib).        useful routines for 'C' programming
+* GLIB: (glib).				Useful routines for 'C' programming
 @end direntry
 
 @node Top, Copying, (dir), (dir)
