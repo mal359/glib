@@ -1,0 +1,9 @@
+Makefile.in
+Makefile
+.deps
+*.lo
+*.o
+.libs
+*.la
+so_locations
+testgthread
