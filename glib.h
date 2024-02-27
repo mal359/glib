@@ -27,6 +27,8 @@
 #ifndef __G_LIB_H__
 #define __G_LIB_H__
 
+#include <sys/param.h>
+
 /* system specific config file glibconfig.h provides definitions for
  * the extrema of many of the standard types. These are:
  *
@@ -134,11 +136,13 @@ extern "C" {
 #define	TRUE	(!FALSE)
 #endif
 
-#undef	MAX
+#ifndef MAX
 #define MAX(a, b)  (((a) > (b)) ? (a) : (b))
+#endif
 
-#undef	MIN
+#ifndef MIN
 #define MIN(a, b)  (((a) < (b)) ? (a) : (b))
+#endif
 
 #undef	ABS
 #define ABS(a)	   (((a) < 0) ? -(a) : (a))
