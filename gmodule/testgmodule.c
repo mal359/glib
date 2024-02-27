@@ -56,6 +56,9 @@ main (int   arg,
 #ifdef NATIVE_WIN32
   plugin_a = g_strconcat (string, "\\libgplugin_a.dll", NULL);
   plugin_b = g_strconcat (string, "\\libgplugin_b.dll", NULL);
+#elif defined (__CYGWIN__)
+  plugin_a = g_strconcat (string, "/.libs/", "cyggplugin_a.dll", NULL);
+  plugin_b = g_strconcat (string, "/.libs/", "cyggplugin_b.dll", NULL);
 #elif (G_MODULE_IMPL == G_MODULE_IMPL_DLD)
   plugin_a = g_strconcat (string, "/.libs/", "libgplugin_a.sl", NULL);
   plugin_b = g_strconcat (string, "/.libs/", "libgplugin_b.sl", NULL);

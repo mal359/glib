@@ -127,7 +127,9 @@ g_module_set_error (const gchar *error)
 
 /* --- include platform specifc code --- */
 #define	SUPPORT_OR_RETURN(rv)	{ g_module_set_error (NULL); }
-#if	(G_MODULE_IMPL == G_MODULE_IMPL_DL)
+#ifdef __CYGWIN__
+#include "gmodule-cygwin.c"
+#elif	(G_MODULE_IMPL == G_MODULE_IMPL_DL)
 #include "gmodule-dl.c"
 #elif	(G_MODULE_IMPL == G_MODULE_IMPL_DLD)
 #include "gmodule-dld.c"
