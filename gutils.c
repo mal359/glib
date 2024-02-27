@@ -483,6 +483,7 @@ g_get_any_init (void)
 #    ifdef _SC_GETPW_R_SIZE_MAX  
         /* This reurns the maximum length */
         guint bufsize = sysconf (_SC_GETPW_R_SIZE_MAX);
+	if (bufsize == UINT_MAX) bufsize = 64; /* XXX Correct for unimpelemented SC */
 #    else /* _SC_GETPW_R_SIZE_MAX */
         guint bufsize = 64;
 #    endif /* _SC_GETPW_R_SIZE_MAX */
