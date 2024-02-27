@@ -487,6 +487,8 @@ g_get_any_init (void)
         guint bufsize = 64;
 #    endif /* _SC_GETPW_R_SIZE_MAX */
         gint error;
+
+        if (bufsize == (guint) -1) bufsize = 64; /* XXX Correct for unimpelemented SC */
 	
         do
           {
