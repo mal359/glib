@@ -87,10 +87,22 @@ new_thread(GHookFunc func, gpointer data)
      pthread_attr_setdetachstate (&pthread_attr, PTHREAD_CREATE_JOINABLE);
   */
   pthread_create (&thread, &pthread_attr, (void *(*)(void *)) func, data);
+
+#ifdef __sgi
   return GUINT_TO_POINTER (thread);
+#else
+  return thread;
+#endif
 }
+
+#ifdef __sgi
 #define join_thread(thread) \
   pthread_join ((pthread_t)GPOINTER_TO_UINT (thread), NULL)
+#else
+#define join_thread(thread) \
+  pthread_join ((thread), NULL)
+#endif
+
 #define self_thread() GUINT_TO_POINTER (pthread_self ())
 
 #else /* we are not having a thread implementation, do nothing */
