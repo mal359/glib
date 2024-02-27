@@ -72,7 +72,7 @@ configinclude_DATA = \
 
 CONFIGURE_DEPENDENCIES = acglib.m4		
 
-BUILT_SOURCES = stamp-gc-h #note: not glibconfig.h
+BUILT_SOURCES += stamp-gc-h #note: not glibconfig.h
 glibconfig.h: stamp-gc-h
 	@:
 stamp-gc-h: config.status
