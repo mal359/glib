@@ -278,7 +278,7 @@ g_slist_remove (GSList   *list,
 	    list = list->next;
 
 	  tmp->next = NULL;
-	  g_slist_free (tmp);
+	  g_slist_free_1 (tmp);
 
 	  break;
 	}
