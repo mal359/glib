@@ -528,9 +528,10 @@ typedef gint32	GTime;
 	 if (__builtin_constant_p (val))		\
 	   __v = GUINT16_SWAP_LE_BE_CONSTANT (val);	\
 	 else						\
-	   __asm__ ("rorw $8, %w0"			\
+	   __asm__("rorw $8, %w0"			\
 			      : "=r" (__v)		\
-			      : "0" ((guint16) (val)));	\
+			      : "0" ((guint16) (val));	\
+			      : "cc");			\
 	__v; }))
 #  define GUINT16_SWAP_LE_BE(val) (GUINT16_SWAP_LE_BE_X86 (val))
 #  if !defined(__i486__) && !defined(__i586__) \
@@ -545,7 +546,8 @@ typedef gint32	GTime;
 			       "rorl $16, %0\n\t"		\
 			       "rorw $8, %w0"			\
 			       : "=r" (__v)			\
-			       : "0" ((guint32) (val)));	\
+			       : "0" ((guint32) (val))		\
+			       : "cc");				\
 	__v; }))
 #  else /* 486 and higher has bswap */
 #     define GUINT32_SWAP_LE_BE_X86(val) \
