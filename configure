@@ -9277,6 +9277,13 @@ then :
 fi
 
 fi
+
+if test "x`uname -s`" = "xOpenBSD" -a "x$enable_shared" = "xyes"; then
+  if test -z "`echo __ELF__ | $CC -E - | grep __ELF__`" || test "$host_os-$host_cpu" = "openbsd2.8-powerpc"; then
+    G_MODULE_LDFLAGS="-Wl,-E"
+  fi
+fi
+
 if test "$G_MODULE_IMPL" = "G_MODULE_IMPL_DL"; then
 	case "$host_os" in
 	  linux*)
@@ -9975,6 +9982,13 @@ G_THREAD_CFLAGS="$G_THREAD_CFLAGS -D_REENTRANT" # good default guess
 		# FreeBSD 2.2.x shiped with gcc 2.7.2.x, which doesn't support
 		# -mthreads flag.
 		;;
+	*-openbsd*)
+		G_THREAD_CFLAGS="$G_THREAD_CFLAGS -D_THREAD_SAFE"
+		  if test "x$G_THREAD_LIBS" = "x-lc_r" -o \
+			"x$G_THREAD_LIBS" = "x-lpthread" ; then
+		    G_THREAD_LIBS="-lpthread"
+		  fi
+		;;
     esac
 
     # if we are not finding the ctime_r function, then we probably are
@@ -10224,8 +10238,6 @@ printf "%s\n" "#define G_THREAD_SOURCE \"gthread-$have_threads.c\"" >>confdefs.h
 
 
 
-
-CFLAGS="$CFLAGS $G_THREAD_CFLAGS"
 
 
         case "$mutex_has_default" in
