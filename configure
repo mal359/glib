@@ -8491,6 +8491,8 @@ printf %s "checking for sys_siglist... " >&6; }
 cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 
+#include <stdlib.h>
+
 int
 main (void)
 {
@@ -8523,6 +8525,7 @@ printf %s "checking for sys_siglist declaration... " >&6; }
 cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <signal.h>
+#include <string.h>
 int
 main (void)
 {
@@ -8938,6 +8941,7 @@ else $as_nop
 /* end confdefs.h.  */
 
 	#include <stdarg.h>
+	#include <stdlib.h>
 	void f (int i, ...) {
 	va_list args1, args2;
 	va_start (args1, i);
@@ -10258,8 +10262,9 @@ else $as_nop
   cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <stdio.h>
+#include <stdlib.h>
 #include <$mutex_header_file>
-main()
+int main()
 {
   FILE *f=fopen("conftestval", "w");
   if (!f) exit(1);
@@ -10296,8 +10301,9 @@ else $as_nop
   cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <stdio.h>
+#include <stdlib.h>
 #include <$mutex_header_file>
-main()
+int main()
 {
   static $mutex_default_type tv = $mutex_default_init;
   char *p = (char*) &tv;
