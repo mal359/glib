@@ -2753,7 +2753,7 @@ rm -f glibconfig-sysdefs.h
 #
 GLIB_MAJOR_VERSION=1
 GLIB_MINOR_VERSION=2
-GLIB_MICRO_VERSION=10
+GLIB_MICRO_VERSION=23
 GLIB_INTERFACE_AGE=10
 GLIB_BINARY_AGE=10
 GLIB_VERSION=$GLIB_MAJOR_VERSION.$GLIB_MINOR_VERSION.$GLIB_MICRO_VERSION
@@ -8841,9 +8841,6 @@ printf %s "checking if iswalnum() and friends are properly defined... " >&6; }
 cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <stdlib.h>
-int
-main (void)
-{
 
 #if (defined(HAVE_WCTYPE_H) || defined(HAVE_WCHAR_H))
 #  ifdef HAVE_WCTYPE_H
@@ -8856,6 +8853,10 @@ main (void)
 #else
 #  define iswalnum(c) ((wchar_t)(c) <= 0xFF && isalnum(c))
 #endif
+int
+main (void)
+{
+
 iswalnum((wchar_t) 0);
 
   ;
@@ -9979,6 +9980,9 @@ G_THREAD_CFLAGS="$G_THREAD_CFLAGS -D_REENTRANT" # good default guess
 		if test x"$GCC" = xyes; then
             	        G_THREAD_CFLAGS="$G_THREAD_CFLAGS -mthreads"
 		fi
+		;;
+	*-dragonfly*)
+		G_THREAD_LIBS="-pthread"
 		;;
 	*-freebsd2.2*)
 		G_THREAD_CFLAGS="$G_THREAD_CFLAGS -D_THREAD_SAFE"
