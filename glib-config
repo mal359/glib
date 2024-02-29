@@ -55,7 +55,7 @@ while test $# -gt 0; do
       echo_exec_prefix=yes
       ;;
     --version)
-      echo @GLIB_VERSION@
+      echo 1.2.23
       exit 0
       ;;
     --cflags)
@@ -89,9 +89,9 @@ fi
 if test "$echo_cflags" = "yes"; then
 	cflags=""
 	if test "$lib_gthread" = "yes"; then
-		cflags="$cflags @G_THREAD_CFLAGS@"
+		cflags="$cflags  -D_REENTRANT"
 	fi
-	echo -I@includedir@/glib-1.2 $includes $cflags
+	echo -I${includedir}/glib-1.2 -I${libdir}/glib/include $includes $cflags
 fi
 if test "$echo_libs" = "yes"; then
 	libsp=""
@@ -101,11 +101,11 @@ if test "$echo_libs" = "yes"; then
 	fi
 	if test "$lib_gthread" = "yes"; then
 		libsp="-lgthread $libsp"
-		libsa="$libsa @G_THREAD_LIBS@"
+		libsa="$libsa -lpthread"
 	fi
 	if test "$lib_gmodule" = "yes"; then
-		libsp="@G_MODULE_LDFLAGS@ -lgmodule $libsp"
-		libsa="$libsa @G_MODULE_LIBS@"
+		libsp="-rdynamic -lgmodule $libsp"
+		libsa="$libsa "
 	fi
-	echo -L@libdir@ -Wl,-R@libdir@ $libsp $libsa
+	echo -L${exec_prefix}/lib -Wl,-R${exec_prefix}/lib $libsp $libsa
 fi

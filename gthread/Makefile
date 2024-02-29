@@ -1,3 +1,4 @@
+# Generated automatically from Makefile.in by configure.
 # Makefile.in generated automatically by automake 1.4-p6 from Makefile.am
 
 # Copyright (C) 1994, 1995-8, 1999, 2001 Free Software Foundation, Inc.
@@ -11,45 +12,44 @@
 # PARTICULAR PURPOSE.
 
 
-SHELL = @SHELL@
+SHELL = /bin/sh
 
-srcdir = @srcdir@
-top_srcdir = @top_srcdir@
-VPATH = @srcdir@
-prefix = @prefix@
-exec_prefix = @exec_prefix@
+srcdir = .
+top_srcdir = ..
+prefix = /usr/local
+exec_prefix = ${prefix}
 
-bindir = @bindir@
-sbindir = @sbindir@
-libexecdir = @libexecdir@
-datadir = @datadir@
-sysconfdir = @sysconfdir@
-sharedstatedir = @sharedstatedir@
-localstatedir = @localstatedir@
-libdir = @libdir@
-infodir = @infodir@
-mandir = @mandir@
-includedir = @includedir@
+bindir = ${exec_prefix}/bin
+sbindir = ${exec_prefix}/sbin
+libexecdir = ${exec_prefix}/libexec
+datadir = ${prefix}/share
+sysconfdir = ${prefix}/etc
+sharedstatedir = ${prefix}/com
+localstatedir = ${prefix}/var
+libdir = ${exec_prefix}/lib
+infodir = ${prefix}/info
+mandir = ${prefix}/man
+includedir = ${prefix}/include
 oldincludedir = /usr/include
 
 DESTDIR =
 
-pkgdatadir = $(datadir)/@PACKAGE@
-pkglibdir = $(libdir)/@PACKAGE@
-pkgincludedir = $(includedir)/@PACKAGE@
+pkgdatadir = $(datadir)/glib
+pkglibdir = $(libdir)/glib
+pkgincludedir = $(includedir)/glib
 
 top_builddir = ..
 
-ACLOCAL = @ACLOCAL@
-AUTOCONF = @AUTOCONF@
-AUTOMAKE = @AUTOMAKE@
-AUTOHEADER = @AUTOHEADER@
+ACLOCAL = aclocal
+AUTOCONF = autoconf
+AUTOMAKE = automake
+AUTOHEADER = autoheader
 
-INSTALL = @INSTALL@
-INSTALL_PROGRAM = @INSTALL_PROGRAM@ $(AM_INSTALL_PROGRAM_FLAGS)
-INSTALL_DATA = @INSTALL_DATA@
-INSTALL_SCRIPT = @INSTALL_SCRIPT@
-transform = @program_transform_name@
+INSTALL = /usr/bin/install -c
+INSTALL_PROGRAM = ${INSTALL} $(AM_INSTALL_PROGRAM_FLAGS)
+INSTALL_DATA = ${INSTALL} -m 644
+INSTALL_SCRIPT = ${INSTALL_PROGRAM}
+transform = s,x,x,
 
 NORMAL_INSTALL = :
 PRE_INSTALL = :
@@ -57,139 +57,107 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-host_alias = @host_alias@
-host_triplet = @host@
+host_alias = x86_64-pc-linux-gnu
+host_triplet = x86_64-pc-linux-gnu
 AS = @AS@
-CC = @CC@
+CC = gcc
 DLLTOOL = @DLLTOOL@
-ENABLE_MEM_CHECK = @ENABLE_MEM_CHECK@
-ENABLE_MEM_PROFILE = @ENABLE_MEM_PROFILE@
-GLIB_BINARY_AGE = @GLIB_BINARY_AGE@
-GLIB_DEBUG_FLAGS = @GLIB_DEBUG_FLAGS@
-GLIB_INTERFACE_AGE = @GLIB_INTERFACE_AGE@
-GLIB_MAJOR_VERSION = @GLIB_MAJOR_VERSION@
-GLIB_MICRO_VERSION = @GLIB_MICRO_VERSION@
-GLIB_MINOR_VERSION = @GLIB_MINOR_VERSION@
-GLIB_VERSION = @GLIB_VERSION@
-G_MODULE_BROKEN_RTLD_GLOBAL = @G_MODULE_BROKEN_RTLD_GLOBAL@
-G_MODULE_HAVE_DLERROR = @G_MODULE_HAVE_DLERROR@
-G_MODULE_IMPL = @G_MODULE_IMPL@
-G_MODULE_LDFLAGS = @G_MODULE_LDFLAGS@
-G_MODULE_LIBS = @G_MODULE_LIBS@
-G_MODULE_NEED_USCORE = @G_MODULE_NEED_USCORE@
-G_THREAD_CFLAGS = @G_THREAD_CFLAGS@
-G_THREAD_LIBS = @G_THREAD_LIBS@
-LIBTOOL = @LIBTOOL@
-LN_S = @LN_S@
-LT_AGE = @LT_AGE@
-LT_CURRENT = @LT_CURRENT@
-LT_RELEASE = @LT_RELEASE@
-LT_REVISION = @LT_REVISION@
-MAINT = @MAINT@
-MAKEINFO = @MAKEINFO@
+ENABLE_MEM_CHECK = 
+ENABLE_MEM_PROFILE = 
+GLIB_BINARY_AGE = 10
+GLIB_DEBUG_FLAGS = 
+GLIB_INTERFACE_AGE = 10
+GLIB_MAJOR_VERSION = 1
+GLIB_MICRO_VERSION = 23
+GLIB_MINOR_VERSION = 2
+GLIB_VERSION = 1.2.23
+G_MODULE_BROKEN_RTLD_GLOBAL = 0
+G_MODULE_HAVE_DLERROR = 1
+G_MODULE_IMPL = G_MODULE_IMPL_DL
+G_MODULE_LDFLAGS = -rdynamic
+G_MODULE_LIBS = 
+G_MODULE_NEED_USCORE = 0
+G_THREAD_CFLAGS =  -D_REENTRANT
+G_THREAD_LIBS = -lpthread
+LIBTOOL = $(SHELL) $(top_builddir)/libtool
+LN_S = ln -s
+LT_AGE = 0
+LT_CURRENT = 13
+LT_RELEASE = 1.2
+LT_REVISION = 10
+MAINT = #
+MAKEINFO = makeinfo
 OBJDUMP = @OBJDUMP@
-PACKAGE = @PACKAGE@
-RANLIB = @RANLIB@
-VERSION = @VERSION@
+PACKAGE = glib
+RANLIB = ranlib
+VERSION = 1.2.23
 
-INCLUDES = -I$(top_srcdir) -I$(top_srcdir)/gmodule \
-	-DG_LOG_DOMAIN=\"GModule\" @GLIB_DEBUG_FLAGS@
-
+INCLUDES = -I$(top_srcdir) -I$(top_srcdir)/gthread -DG_LOG_DOMAIN=\"GThread\"
 
 EXTRA_DIST = \
-		gmoduleconf.h.in \
-		gmodule.def	\
-		gmodule-dl.c	\
-		gmodule-dld.c	\
-		gmodule-win32.c	\
-		gmoduleconf.h.win32
-
-
-BUILT_SOURCES = gmoduleconf.h
-
-glibincludedir = $(includedir)/glib-1.2
-glibinclude_HEADERS = \
-		gmodule.h
+		gthread-posix.c		\
+		gthread-solaris.c	\
+		gthread-nspr.c		\
+		gthread-none.c		\
+		gthread.def
 
 
 libglib = $(top_builddir)/libglib.la # -lglib
 
-lib_LTLIBRARIES = libgmodule.la libgplugin_a.la libgplugin_b.la
+lib_LTLIBRARIES = libgthread.la
 
-libgmodule_la_SOURCES = gmodule.c
-libgmodule_la_LDFLAGS = \
-	@G_MODULE_LDFLAGS@ \
-	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) -export-dynamic
+libgthread_la_SOURCES = gthread.c
+libgthread_la_LDFLAGS = -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)
 
 
-libgmodule_la_DEPENDENCIES = $(libglib)
-libgmodule_la_LIBADD = @G_MODULE_LIBS@ $(libglib)
-# we should really depend on $(libglib) for libgmodule.la, but libtool has a
-# problem with this ;(
+libgthread_la_DEPENDENCIES = $(libglib)
+libgthread_la_LIBADD = -lpthread $(libglib)
 
-libgplugin_a_la_SOURCES = libgplugin_a.c
-libgplugin_a_la_LDFLAGS = @G_MODULE_LDFLAGS@ -avoid-version -module
-libgplugin_a_la_LIBADD = @G_MODULE_LIBS@ $(libglib)
-
-libgplugin_b_la_SOURCES = libgplugin_b.c
-libgplugin_b_la_LDFLAGS = @G_MODULE_LDFLAGS@ -avoid-version -module
-libgplugin_b_la_LIBADD = @G_MODULE_LIBS@ $(libglib)
-
-noinst_PROGRAMS = testgmodule
-testgmodule_LDFLAGS =  @G_MODULE_LDFLAGS@
-testgmodule_LDADD = libgmodule.la @G_MODULE_LIBS@
+noinst_PROGRAMS = testgthread
+testgthread_LDADD = libgthread.la 
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = ../config.h
-CONFIG_CLEAN_FILES =  gmoduleconf.h
+CONFIG_CLEAN_FILES = 
 LTLIBRARIES =  $(lib_LTLIBRARIES)
 
 
-DEFS = @DEFS@ -I. -I$(srcdir) -I..
-CPPFLAGS = @CPPFLAGS@
-LDFLAGS = @LDFLAGS@
-LIBS = @LIBS@
-libgmodule_la_OBJECTS =  gmodule.lo
-libgplugin_a_la_DEPENDENCIES =  $(top_builddir)/libglib.la
-libgplugin_a_la_OBJECTS =  libgplugin_a.lo
-libgplugin_b_la_DEPENDENCIES =  $(top_builddir)/libglib.la
-libgplugin_b_la_OBJECTS =  libgplugin_b.lo
+DEFS = -DHAVE_CONFIG_H -I. -I$(srcdir) -I..
+CPPFLAGS = 
+LDFLAGS = 
+LIBS = 
+libgthread_la_OBJECTS =  gthread.lo
 PROGRAMS =  $(noinst_PROGRAMS)
 
-testgmodule_SOURCES = testgmodule.c
-testgmodule_OBJECTS =  testgmodule.o
-testgmodule_DEPENDENCIES =  libgmodule.la
-CFLAGS = @CFLAGS@
+testgthread_SOURCES = testgthread.c
+testgthread_OBJECTS =  testgthread.o
+testgthread_DEPENDENCIES =  libgthread.la
+testgthread_LDFLAGS = 
+CFLAGS = -g -O2 -Wall  -D_REENTRANT
 COMPILE = $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(LIBTOOL) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(LDFLAGS) -o $@
-HEADERS =  $(glibinclude_HEADERS)
-
-DIST_COMMON =  AUTHORS COPYING ChangeLog Makefile.am Makefile.in \
-gmoduleconf.h.in
+DIST_COMMON =  ChangeLog Makefile.am Makefile.in
 
 
 DISTFILES = $(DIST_COMMON) $(SOURCES) $(HEADERS) $(TEXINFOS) $(EXTRA_DIST)
 
 TAR = gtar
 GZIP_ENV = --best
-DEP_FILES =  .deps/gmodule.P .deps/libgplugin_a.P .deps/libgplugin_b.P \
-.deps/testgmodule.P
-SOURCES = $(libgmodule_la_SOURCES) $(libgplugin_a_la_SOURCES) $(libgplugin_b_la_SOURCES) testgmodule.c
-OBJECTS = $(libgmodule_la_OBJECTS) $(libgplugin_a_la_OBJECTS) $(libgplugin_b_la_OBJECTS) testgmodule.o
+DEP_FILES =  .deps/gthread.P .deps/testgthread.P
+SOURCES = $(libgthread_la_SOURCES) testgthread.c
+OBJECTS = $(libgthread_la_OBJECTS) testgthread.o
 
 all: all-redirect
 .SUFFIXES:
 .SUFFIXES: .S .c .lo .o .s
-$(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4) 
-	cd $(top_srcdir) && $(AUTOMAKE) --gnu gmodule/Makefile
+$(srcdir)/Makefile.in: # Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4) 
+	cd $(top_srcdir) && $(AUTOMAKE) --gnu gthread/Makefile
 
 Makefile: $(srcdir)/Makefile.in  $(top_builddir)/config.status $(BUILT_SOURCES)
 	cd $(top_builddir) \
 	  && CONFIG_FILES=$(subdir)/$@ CONFIG_HEADERS= $(SHELL) ./config.status
 
-gmoduleconf.h: $(top_builddir)/config.status gmoduleconf.h.in
-	cd $(top_builddir) && CONFIG_FILES=$(subdir)/$@ CONFIG_HEADERS= $(SHELL) ./config.status
 
 mostlyclean-libLTLIBRARIES:
 
@@ -199,6 +167,16 @@ clean-libLTLIBRARIES:
 distclean-libLTLIBRARIES:
 
 maintainer-clean-libLTLIBRARIES:
+
+install-libLTLIBRARIES: $(lib_LTLIBRARIES)
+	@$(NORMAL_INSTALL)
+	$(mkinstalldirs) $(DESTDIR)$(libdir)
+	@list='$(lib_LTLIBRARIES)'; for p in $$list; do \
+	  if test -f $$p; then \
+	    echo "$(LIBTOOL)  --mode=install $(INSTALL) $$p $(DESTDIR)$(libdir)/$$p"; \
+	    $(LIBTOOL)  --mode=install $(INSTALL) $$p $(DESTDIR)$(libdir)/$$p; \
+	  else :; fi; \
+	done
 
 uninstall-libLTLIBRARIES:
 	@$(NORMAL_UNINSTALL)
@@ -238,14 +216,8 @@ distclean-libtool:
 
 maintainer-clean-libtool:
 
-libgmodule.la: $(libgmodule_la_OBJECTS) $(libgmodule_la_DEPENDENCIES)
-	$(LINK) -rpath $(libdir) $(libgmodule_la_LDFLAGS) $(libgmodule_la_OBJECTS) $(libgmodule_la_LIBADD) $(LIBS)
-
-libgplugin_a.la: $(libgplugin_a_la_OBJECTS) $(libgplugin_a_la_DEPENDENCIES)
-	$(LINK) -rpath $(libdir) $(libgplugin_a_la_LDFLAGS) $(libgplugin_a_la_OBJECTS) $(libgplugin_a_la_LIBADD) $(LIBS)
-
-libgplugin_b.la: $(libgplugin_b_la_OBJECTS) $(libgplugin_b_la_DEPENDENCIES)
-	$(LINK) -rpath $(libdir) $(libgplugin_b_la_LDFLAGS) $(libgplugin_b_la_OBJECTS) $(libgplugin_b_la_LIBADD) $(LIBS)
+libgthread.la: $(libgthread_la_OBJECTS) $(libgthread_la_DEPENDENCIES)
+	$(LINK) -rpath $(libdir) $(libgthread_la_LDFLAGS) $(libgthread_la_OBJECTS) $(libgthread_la_LIBADD) $(LIBS)
 
 mostlyclean-noinstPROGRAMS:
 
@@ -256,24 +228,9 @@ distclean-noinstPROGRAMS:
 
 maintainer-clean-noinstPROGRAMS:
 
-testgmodule: $(testgmodule_OBJECTS) $(testgmodule_DEPENDENCIES)
-	@rm -f testgmodule
-	$(LINK) $(testgmodule_LDFLAGS) $(testgmodule_OBJECTS) $(testgmodule_LDADD) $(LIBS)
-
-install-glibincludeHEADERS: $(glibinclude_HEADERS)
-	@$(NORMAL_INSTALL)
-	$(mkinstalldirs) $(DESTDIR)$(glibincludedir)
-	@list='$(glibinclude_HEADERS)'; for p in $$list; do \
-	  if test -f "$$p"; then d= ; else d="$(srcdir)/"; fi; \
-	  echo " $(INSTALL_DATA) $$d$$p $(DESTDIR)$(glibincludedir)/$$p"; \
-	  $(INSTALL_DATA) $$d$$p $(DESTDIR)$(glibincludedir)/$$p; \
-	done
-
-uninstall-glibincludeHEADERS:
-	@$(NORMAL_UNINSTALL)
-	list='$(glibinclude_HEADERS)'; for p in $$list; do \
-	  rm -f $(DESTDIR)$(glibincludedir)/$$p; \
-	done
+testgthread: $(testgthread_OBJECTS) $(testgthread_DEPENDENCIES)
+	@rm -f testgthread
+	$(LINK) $(testgthread_LDFLAGS) $(testgthread_OBJECTS) $(testgthread_LDADD) $(LIBS)
 
 tags: TAGS
 
@@ -306,14 +263,14 @@ maintainer-clean-tags:
 
 distdir = $(top_builddir)/$(PACKAGE)-$(VERSION)/$(subdir)
 
-subdir = gmodule
+subdir = gthread
 
 distdir: $(DISTFILES)
 	here=`cd $(top_builddir) && pwd`; \
 	top_distdir=`cd $(top_distdir) && pwd`; \
 	distdir=`cd $(distdir) && pwd`; \
 	cd $(top_srcdir) \
-	  && $(AUTOMAKE) --include-deps --build-dir=$$here --srcdir-name=$(top_srcdir) --output-dir=$$top_distdir --gnu gmodule/Makefile
+	  && $(AUTOMAKE) --include-deps --build-dir=$$here --srcdir-name=$(top_srcdir) --output-dir=$$top_distdir --gnu gthread/Makefile
 	@for file in $(DISTFILES); do \
 	  d=$(srcdir); \
 	  if test -d $$d/$$file; then \
@@ -367,20 +324,20 @@ installcheck: installcheck-am
 install-exec-am: install-libLTLIBRARIES
 install-exec: install-exec-am
 
-install-data-am: install-glibincludeHEADERS
+install-data-am:
 install-data: install-data-am
 
 install-am: all-am
 	@$(MAKE) $(AM_MAKEFLAGS) install-exec-am install-data-am
 install: install-am
-uninstall-am: uninstall-libLTLIBRARIES uninstall-glibincludeHEADERS
+uninstall-am: uninstall-libLTLIBRARIES
 uninstall: uninstall-am
-all-am: Makefile $(LTLIBRARIES) $(PROGRAMS) $(HEADERS)
+all-am: Makefile $(LTLIBRARIES) $(PROGRAMS)
 all-redirect: all-am
 install-strip:
 	$(MAKE) $(AM_MAKEFLAGS) AM_INSTALL_PROGRAM_FLAGS=-s install
 installdirs:
-	$(mkinstalldirs)  $(DESTDIR)$(libdir) $(DESTDIR)$(glibincludedir)
+	$(mkinstalldirs)  $(DESTDIR)$(libdir)
 
 
 mostlyclean-generic:
@@ -392,7 +349,6 @@ distclean-generic:
 	-rm -f config.cache config.log stamp-h stamp-h[0-9]*
 
 maintainer-clean-generic:
-	-test -z "$(BUILT_SOURCES)" || rm -f $(BUILT_SOURCES)
 mostlyclean-am:  mostlyclean-libLTLIBRARIES mostlyclean-compile \
 		mostlyclean-libtool mostlyclean-noinstPROGRAMS \
 		mostlyclean-tags mostlyclean-depend mostlyclean-generic
@@ -430,8 +386,7 @@ distclean-compile clean-compile maintainer-clean-compile \
 mostlyclean-libtool distclean-libtool clean-libtool \
 maintainer-clean-libtool mostlyclean-noinstPROGRAMS \
 distclean-noinstPROGRAMS clean-noinstPROGRAMS \
-maintainer-clean-noinstPROGRAMS uninstall-glibincludeHEADERS \
-install-glibincludeHEADERS tags mostlyclean-tags distclean-tags \
+maintainer-clean-noinstPROGRAMS tags mostlyclean-tags distclean-tags \
 clean-tags maintainer-clean-tags distdir mostlyclean-depend \
 distclean-depend clean-depend maintainer-clean-depend info-am info \
 dvi-am dvi check check-am installcheck-am installcheck install-exec-am \
@@ -440,27 +395,6 @@ uninstall-am uninstall all-redirect all-am all installdirs \
 mostlyclean-generic distclean-generic clean-generic \
 maintainer-clean-generic clean mostlyclean distclean maintainer-clean
 
-gmoduleconf.h:	gmoduleconf.h.in
-
-.PHONY: files release
-
-files:
-	@files=`ls $(DISTFILES) 2> /dev/null `; for p in $$files; do \
-	  echo $$p; \
-	done
-
-install-libLTLIBRARIES: libgmodule.la
-	@$(NORMAL_INSTALL)
-	$(mkinstalldirs) $(DESTDIR)$(libdir)
-	@list='libgmodule.la'; for p in $$list; do \
-	 if test -f $$p; then \
-	  echo "$(LIBTOOL)  --mode=install $(INSTALL_DATA) $$p $(DESTDIR)$(libdir)/$$p"; \
-	  $(LIBTOOL)  --mode=install $(INSTALL_DATA) $$p $(DESTDIR)$(libdir)/$$p; \
-	 else :; fi; \
-	done
-
-release:
-	$(MAKE) dist distdir=$(PACKAGE)`date +"%y%m%d"`
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

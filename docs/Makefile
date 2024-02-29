@@ -1,3 +1,4 @@
+# Generated automatically from Makefile.in by configure.
 # Makefile.in generated automatically by automake 1.4-p6 from Makefile.am
 
 # Copyright (C) 1994, 1995-8, 1999, 2001 Free Software Foundation, Inc.
@@ -11,45 +12,44 @@
 # PARTICULAR PURPOSE.
 
 
-SHELL = @SHELL@
+SHELL = /bin/sh
 
-srcdir = @srcdir@
-top_srcdir = @top_srcdir@
-VPATH = @srcdir@
-prefix = @prefix@
-exec_prefix = @exec_prefix@
+srcdir = .
+top_srcdir = ..
+prefix = /usr/local
+exec_prefix = ${prefix}
 
-bindir = @bindir@
-sbindir = @sbindir@
-libexecdir = @libexecdir@
-datadir = @datadir@
-sysconfdir = @sysconfdir@
-sharedstatedir = @sharedstatedir@
-localstatedir = @localstatedir@
-libdir = @libdir@
-infodir = @infodir@
-mandir = @mandir@
-includedir = @includedir@
+bindir = ${exec_prefix}/bin
+sbindir = ${exec_prefix}/sbin
+libexecdir = ${exec_prefix}/libexec
+datadir = ${prefix}/share
+sysconfdir = ${prefix}/etc
+sharedstatedir = ${prefix}/com
+localstatedir = ${prefix}/var
+libdir = ${exec_prefix}/lib
+infodir = ${prefix}/info
+mandir = ${prefix}/man
+includedir = ${prefix}/include
 oldincludedir = /usr/include
 
 DESTDIR =
 
-pkgdatadir = $(datadir)/@PACKAGE@
-pkglibdir = $(libdir)/@PACKAGE@
-pkgincludedir = $(includedir)/@PACKAGE@
+pkgdatadir = $(datadir)/glib
+pkglibdir = $(libdir)/glib
+pkgincludedir = $(includedir)/glib
 
 top_builddir = ..
 
-ACLOCAL = @ACLOCAL@
-AUTOCONF = @AUTOCONF@
-AUTOMAKE = @AUTOMAKE@
-AUTOHEADER = @AUTOHEADER@
+ACLOCAL = aclocal
+AUTOCONF = autoconf
+AUTOMAKE = automake
+AUTOHEADER = autoheader
 
-INSTALL = @INSTALL@
-INSTALL_PROGRAM = @INSTALL_PROGRAM@ $(AM_INSTALL_PROGRAM_FLAGS)
-INSTALL_DATA = @INSTALL_DATA@
-INSTALL_SCRIPT = @INSTALL_SCRIPT@
-transform = @program_transform_name@
+INSTALL = /usr/bin/install -c
+INSTALL_PROGRAM = ${INSTALL} $(AM_INSTALL_PROGRAM_FLAGS)
+INSTALL_DATA = ${INSTALL} -m 644
+INSTALL_SCRIPT = ${INSTALL_PROGRAM}
+transform = s,x,x,
 
 NORMAL_INSTALL = :
 PRE_INSTALL = :
@@ -57,40 +57,40 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-host_alias = @host_alias@
-host_triplet = @host@
+host_alias = x86_64-pc-linux-gnu
+host_triplet = x86_64-pc-linux-gnu
 AS = @AS@
-CC = @CC@
+CC = gcc
 DLLTOOL = @DLLTOOL@
-ENABLE_MEM_CHECK = @ENABLE_MEM_CHECK@
-ENABLE_MEM_PROFILE = @ENABLE_MEM_PROFILE@
-GLIB_BINARY_AGE = @GLIB_BINARY_AGE@
-GLIB_DEBUG_FLAGS = @GLIB_DEBUG_FLAGS@
-GLIB_INTERFACE_AGE = @GLIB_INTERFACE_AGE@
-GLIB_MAJOR_VERSION = @GLIB_MAJOR_VERSION@
-GLIB_MICRO_VERSION = @GLIB_MICRO_VERSION@
-GLIB_MINOR_VERSION = @GLIB_MINOR_VERSION@
-GLIB_VERSION = @GLIB_VERSION@
-G_MODULE_BROKEN_RTLD_GLOBAL = @G_MODULE_BROKEN_RTLD_GLOBAL@
-G_MODULE_HAVE_DLERROR = @G_MODULE_HAVE_DLERROR@
-G_MODULE_IMPL = @G_MODULE_IMPL@
-G_MODULE_LDFLAGS = @G_MODULE_LDFLAGS@
-G_MODULE_LIBS = @G_MODULE_LIBS@
-G_MODULE_NEED_USCORE = @G_MODULE_NEED_USCORE@
-G_THREAD_CFLAGS = @G_THREAD_CFLAGS@
-G_THREAD_LIBS = @G_THREAD_LIBS@
-LIBTOOL = @LIBTOOL@
-LN_S = @LN_S@
-LT_AGE = @LT_AGE@
-LT_CURRENT = @LT_CURRENT@
-LT_RELEASE = @LT_RELEASE@
-LT_REVISION = @LT_REVISION@
-MAINT = @MAINT@
-MAKEINFO = @MAKEINFO@ --no-split
+ENABLE_MEM_CHECK = 
+ENABLE_MEM_PROFILE = 
+GLIB_BINARY_AGE = 10
+GLIB_DEBUG_FLAGS = 
+GLIB_INTERFACE_AGE = 10
+GLIB_MAJOR_VERSION = 1
+GLIB_MICRO_VERSION = 23
+GLIB_MINOR_VERSION = 2
+GLIB_VERSION = 1.2.23
+G_MODULE_BROKEN_RTLD_GLOBAL = 0
+G_MODULE_HAVE_DLERROR = 1
+G_MODULE_IMPL = G_MODULE_IMPL_DL
+G_MODULE_LDFLAGS = -rdynamic
+G_MODULE_LIBS = 
+G_MODULE_NEED_USCORE = 0
+G_THREAD_CFLAGS =  -D_REENTRANT
+G_THREAD_LIBS = -lpthread
+LIBTOOL = $(SHELL) $(top_builddir)/libtool
+LN_S = ln -s
+LT_AGE = 0
+LT_CURRENT = 13
+LT_RELEASE = 1.2
+LT_REVISION = 10
+MAINT = #
+MAKEINFO = makeinfo
 OBJDUMP = @OBJDUMP@
-PACKAGE = @PACKAGE@
-RANLIB = @RANLIB@
-VERSION = @VERSION@
+PACKAGE = glib
+RANLIB = ranlib
+VERSION = 1.2.23
 
 info_TEXINFOS = glib.texi
 
@@ -121,7 +121,7 @@ GZIP_ENV = --best
 all: all-redirect
 .SUFFIXES:
 .SUFFIXES: .dvi .info .ps .texi .texinfo .txi
-$(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4) 
+$(srcdir)/Makefile.in: # Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4) 
 	cd $(top_srcdir) && $(AUTOMAKE) --gnu docs/Makefile
 
 Makefile: $(srcdir)/Makefile.in  $(top_builddir)/config.status $(BUILT_SOURCES)
@@ -138,40 +138,46 @@ glib.dvi: glib.texi
 DVIPS = dvips
 
 .texi.info:
-	@rm -f $@ $@-[0-9] $@-[0-9][0-9]
-	$(MAKEINFO) -I $(srcdir) $<
+	@cd $(srcdir) && rm -f $@ $@-[0-9] $@-[0-9][0-9]
+	cd $(srcdir) \
+	  && $(MAKEINFO) `echo $< | sed 's,.*/,,'`
 
 .texi.dvi:
 	TEXINPUTS=.:$$TEXINPUTS \
 	  MAKEINFO='$(MAKEINFO) -I $(srcdir)' $(TEXI2DVI) $<
 
 .texi:
-	@rm -f $@ $@-[0-9] $@-[0-9][0-9]
-	$(MAKEINFO) -I $(srcdir) $<
+	@cd $(srcdir) && rm -f $@ $@-[0-9] $@-[0-9][0-9]
+	cd $(srcdir) \
+	  && $(MAKEINFO) `echo $< | sed 's,.*/,,'`
 
 .texinfo.info:
-	@rm -f $@ $@-[0-9] $@-[0-9][0-9]
-	$(MAKEINFO) -I $(srcdir) $<
+	@cd $(srcdir) && rm -f $@ $@-[0-9] $@-[0-9][0-9]
+	cd $(srcdir) \
+	  && $(MAKEINFO) `echo $< | sed 's,.*/,,'`
 
 .texinfo:
-	@rm -f $@ $@-[0-9] $@-[0-9][0-9]
-	$(MAKEINFO) -I $(srcdir) $<
+	@cd $(srcdir) && rm -f $@ $@-[0-9] $@-[0-9][0-9]
+	cd $(srcdir) \
+	  && $(MAKEINFO) `echo $< | sed 's,.*/,,'`
 
 .texinfo.dvi:
 	TEXINPUTS=.:$$TEXINPUTS \
 	  MAKEINFO='$(MAKEINFO) -I $(srcdir)' $(TEXI2DVI) $<
 
 .txi.info:
-	@rm -f $@ $@-[0-9] $@-[0-9][0-9]
-	$(MAKEINFO) -I $(srcdir) $<
+	@cd $(srcdir) && rm -f $@ $@-[0-9] $@-[0-9][0-9]
+	cd $(srcdir) \
+	  && $(MAKEINFO) `echo $< | sed 's,.*/,,'`
 
 .txi.dvi:
 	TEXINPUTS=.:$$TEXINPUTS \
 	  MAKEINFO='$(MAKEINFO) -I $(srcdir)' $(TEXI2DVI) $<
 
 .txi:
-	@rm -f $@ $@-[0-9] $@-[0-9][0-9]
-	$(MAKEINFO) -I $(srcdir) $<
+	@cd $(srcdir) && rm -f $@ $@-[0-9] $@-[0-9][0-9]
+	cd $(srcdir) \
+	  && $(MAKEINFO) `echo $< | sed 's,.*/,,'`
 .dvi.ps:
 	$(DVIPS) $< -o $@
 
@@ -180,10 +186,11 @@ install-info-am: $(INFO_DEPS)
 	$(mkinstalldirs) $(DESTDIR)$(infodir)
 	@list='$(INFO_DEPS)'; \
 	for file in $$list; do \
-	  for ifile in `echo $$file $$file-[0-9] $$file-[0-9][0-9]`; do \
-	    if test -f $$ifile; then \
-	      echo " $(INSTALL_DATA) $$ifile $(DESTDIR)$(infodir)/$$ifile"; \
-	      $(INSTALL_DATA) $$ifile $(DESTDIR)$(infodir)/$$ifile; \
+	  d=$(srcdir); \
+	  for ifile in `cd $$d && echo $$file $$file-[0-9] $$file-[0-9][0-9]`; do \
+	    if test -f $$d/$$ifile; then \
+	      echo " $(INSTALL_DATA) $$d/$$ifile $(DESTDIR)$(infodir)/$$ifile"; \
+	      $(INSTALL_DATA) $$d/$$ifile $(DESTDIR)$(infodir)/$$ifile; \
 	    else : ; fi; \
 	  done; \
 	done

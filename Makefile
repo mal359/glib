@@ -1,3 +1,4 @@
+# Generated automatically from Makefile.in by configure.
 # Makefile.in generated automatically by automake 1.4-p6 from Makefile.am
 
 # Copyright (C) 1994, 1995-8, 1999, 2001 Free Software Foundation, Inc.
@@ -13,45 +14,44 @@
 # require automake 1.4
 
 
-SHELL = @SHELL@
+SHELL = /bin/sh
 
-srcdir = @srcdir@
-top_srcdir = @top_srcdir@
-VPATH = @srcdir@
-prefix = @prefix@
-exec_prefix = @exec_prefix@
+srcdir = .
+top_srcdir = .
+prefix = /usr/local
+exec_prefix = ${prefix}
 
-bindir = @bindir@
-sbindir = @sbindir@
-libexecdir = @libexecdir@
-datadir = @datadir@
-sysconfdir = @sysconfdir@
-sharedstatedir = @sharedstatedir@
-localstatedir = @localstatedir@
-libdir = @libdir@
-infodir = @infodir@
-mandir = @mandir@
-includedir = @includedir@
+bindir = ${exec_prefix}/bin
+sbindir = ${exec_prefix}/sbin
+libexecdir = ${exec_prefix}/libexec
+datadir = ${prefix}/share
+sysconfdir = ${prefix}/etc
+sharedstatedir = ${prefix}/com
+localstatedir = ${prefix}/var
+libdir = ${exec_prefix}/lib
+infodir = ${prefix}/info
+mandir = ${prefix}/man
+includedir = ${prefix}/include
 oldincludedir = /usr/include
 
 DESTDIR =
 
-pkgdatadir = $(datadir)/@PACKAGE@
-pkglibdir = $(libdir)/@PACKAGE@
-pkgincludedir = $(includedir)/@PACKAGE@
+pkgdatadir = $(datadir)/glib
+pkglibdir = $(libdir)/glib
+pkgincludedir = $(includedir)/glib
 
 top_builddir = .
 
-ACLOCAL = @ACLOCAL@
-AUTOCONF = @AUTOCONF@
-AUTOMAKE = @AUTOMAKE@
-AUTOHEADER = @AUTOHEADER@
+ACLOCAL = aclocal
+AUTOCONF = autoconf
+AUTOMAKE = automake
+AUTOHEADER = autoheader
 
-INSTALL = @INSTALL@
-INSTALL_PROGRAM = @INSTALL_PROGRAM@ $(AM_INSTALL_PROGRAM_FLAGS)
-INSTALL_DATA = @INSTALL_DATA@
-INSTALL_SCRIPT = @INSTALL_SCRIPT@
-transform = @program_transform_name@
+INSTALL = /usr/bin/install -c
+INSTALL_PROGRAM = ${INSTALL} $(AM_INSTALL_PROGRAM_FLAGS)
+INSTALL_DATA = ${INSTALL} -m 644
+INSTALL_SCRIPT = ${INSTALL_PROGRAM}
+transform = s,x,x,
 
 NORMAL_INSTALL = :
 PRE_INSTALL = :
@@ -59,40 +59,40 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-host_alias = @host_alias@
-host_triplet = @host@
+host_alias = x86_64-pc-linux-gnu
+host_triplet = x86_64-pc-linux-gnu
 AS = @AS@
-CC = @CC@
+CC = gcc
 DLLTOOL = @DLLTOOL@
-ENABLE_MEM_CHECK = @ENABLE_MEM_CHECK@
-ENABLE_MEM_PROFILE = @ENABLE_MEM_PROFILE@
-GLIB_BINARY_AGE = @GLIB_BINARY_AGE@
-GLIB_DEBUG_FLAGS = @GLIB_DEBUG_FLAGS@
-GLIB_INTERFACE_AGE = @GLIB_INTERFACE_AGE@
-GLIB_MAJOR_VERSION = @GLIB_MAJOR_VERSION@
-GLIB_MICRO_VERSION = @GLIB_MICRO_VERSION@
-GLIB_MINOR_VERSION = @GLIB_MINOR_VERSION@
-GLIB_VERSION = @GLIB_VERSION@
-G_MODULE_BROKEN_RTLD_GLOBAL = @G_MODULE_BROKEN_RTLD_GLOBAL@
-G_MODULE_HAVE_DLERROR = @G_MODULE_HAVE_DLERROR@
-G_MODULE_IMPL = @G_MODULE_IMPL@
-G_MODULE_LDFLAGS = @G_MODULE_LDFLAGS@
-G_MODULE_LIBS = @G_MODULE_LIBS@
-G_MODULE_NEED_USCORE = @G_MODULE_NEED_USCORE@
-G_THREAD_CFLAGS = @G_THREAD_CFLAGS@
-G_THREAD_LIBS = @G_THREAD_LIBS@
-LIBTOOL = @LIBTOOL@
-LN_S = @LN_S@
-LT_AGE = @LT_AGE@
-LT_CURRENT = @LT_CURRENT@
-LT_RELEASE = @LT_RELEASE@
-LT_REVISION = @LT_REVISION@
-MAINT = @MAINT@
-MAKEINFO = @MAKEINFO@
+ENABLE_MEM_CHECK = 
+ENABLE_MEM_PROFILE = 
+GLIB_BINARY_AGE = 10
+GLIB_DEBUG_FLAGS = 
+GLIB_INTERFACE_AGE = 10
+GLIB_MAJOR_VERSION = 1
+GLIB_MICRO_VERSION = 23
+GLIB_MINOR_VERSION = 2
+GLIB_VERSION = 1.2.23
+G_MODULE_BROKEN_RTLD_GLOBAL = 0
+G_MODULE_HAVE_DLERROR = 1
+G_MODULE_IMPL = G_MODULE_IMPL_DL
+G_MODULE_LDFLAGS = -rdynamic
+G_MODULE_LIBS = 
+G_MODULE_NEED_USCORE = 0
+G_THREAD_CFLAGS =  -D_REENTRANT
+G_THREAD_LIBS = -lpthread
+LIBTOOL = $(SHELL) $(top_builddir)/libtool
+LN_S = ln -s
+LT_AGE = 0
+LT_CURRENT = 13
+LT_RELEASE = 1.2
+LT_REVISION = 10
+MAINT = #
+MAKEINFO = makeinfo
 OBJDUMP = @OBJDUMP@
-PACKAGE = @PACKAGE@
-RANLIB = @RANLIB@
-VERSION = @VERSION@
+PACKAGE = glib
+RANLIB = ranlib
+VERSION = 1.2.23
 
 AUTOMAKE_OPTIONS = 1.4
 
@@ -104,7 +104,7 @@ bin_SCRIPTS = glib-config
 
 BUILT_SOURCES = stamp-gc-h #note: not glibconfig.h
 
-INCLUDES = -DG_LOG_DOMAIN=g_log_domain_glib @GLIB_DEBUG_FLAGS@
+INCLUDES = -DG_LOG_DOMAIN=g_log_domain_glib 
 
 EXTRA_DIST = \
 	glib.m4			\
@@ -166,7 +166,7 @@ configinclude_DATA = \
 
 CONFIGURE_DEPENDENCIES = acglib.m4		
 
-libglib_la_LDFLAGS = -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) -export-dynamic
+libglib_la_LDFLAGS = -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)
 
 
 noinst_PROGRAMS = testglib testgdate testgdateparser
@@ -187,10 +187,10 @@ gthread.pc
 LTLIBRARIES =  $(lib_LTLIBRARIES)
 
 
-DEFS = @DEFS@ -I. -I$(srcdir) -I.
-CPPFLAGS = @CPPFLAGS@
-LDFLAGS = @LDFLAGS@
-LIBS = @LIBS@
+DEFS = -DHAVE_CONFIG_H -I. -I$(srcdir) -I.
+CPPFLAGS = 
+LDFLAGS = 
+LIBS = 
 libglib_la_LIBADD = 
 libglib_la_OBJECTS =  garray.lo gcache.lo gcompletion.lo gdataset.lo \
 gdate.lo gerror.lo ghash.lo ghook.lo giochannel.lo giounix.lo glist.lo \
@@ -213,7 +213,7 @@ testgdateparser_DEPENDENCIES =  libglib.la
 testgdateparser_LDFLAGS = 
 SCRIPTS =  $(bin_SCRIPTS)
 
-CFLAGS = @CFLAGS@
+CFLAGS = -g -O2 -Wall  -D_REENTRANT
 COMPILE = $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
@@ -247,19 +247,19 @@ OBJECTS = $(libglib_la_OBJECTS) testglib.o testgdate.o testgdateparser.o
 all: all-redirect
 .SUFFIXES:
 .SUFFIXES: .S .c .lo .o .s
-$(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4) 
+$(srcdir)/Makefile.in: # Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4) 
 	cd $(top_srcdir) && $(AUTOMAKE) --gnu Makefile
 
 Makefile: $(srcdir)/Makefile.in  $(top_builddir)/config.status $(BUILT_SOURCES)
 	cd $(top_builddir) \
 	  && CONFIG_FILES=$@ CONFIG_HEADERS= $(SHELL) ./config.status
 
-$(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ configure.in  acinclude.m4
+$(ACLOCAL_M4): # configure.in  acinclude.m4
 	cd $(srcdir) && $(ACLOCAL)
 
 config.status: $(srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	$(SHELL) ./config.status --recheck
-$(srcdir)/configure: @MAINTAINER_MODE_TRUE@$(srcdir)/configure.in $(ACLOCAL_M4) $(CONFIGURE_DEPENDENCIES)
+$(srcdir)/configure: #$(srcdir)/configure.in $(ACLOCAL_M4) $(CONFIGURE_DEPENDENCIES)
 	cd $(srcdir) && $(AUTOCONF)
 
 config.h: stamp-h
@@ -272,7 +272,7 @@ stamp-h: $(srcdir)/config.h.in $(top_builddir)/config.status
 	  && CONFIG_FILES= CONFIG_HEADERS=config.h \
 	     $(SHELL) ./config.status
 	@echo timestamp > stamp-h 2> /dev/null
-$(srcdir)/config.h.in: @MAINTAINER_MODE_TRUE@$(srcdir)/stamp-h.in
+$(srcdir)/config.h.in: #$(srcdir)/stamp-h.in
 	@if test ! -f $@; then \
 		rm -f $(srcdir)/stamp-h.in; \
 		$(MAKE) $(srcdir)/stamp-h.in; \
@@ -479,7 +479,7 @@ uninstall-glibincludeHEADERS:
 #     (which will cause the Makefiles to be regenerated when you run `make');
 # (2) otherwise, pass the desired values on the `make' command line.
 
-@SET_MAKE@
+
 
 all-recursive install-data-recursive install-exec-recursive \
 installdirs-recursive install-recursive uninstall-recursive  \

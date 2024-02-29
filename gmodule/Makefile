@@ -1,3 +1,4 @@
+# Generated automatically from Makefile.in by configure.
 # Makefile.in generated automatically by automake 1.4-p6 from Makefile.am
 
 # Copyright (C) 1994, 1995-8, 1999, 2001 Free Software Foundation, Inc.
@@ -11,45 +12,44 @@
 # PARTICULAR PURPOSE.
 
 
-SHELL = @SHELL@
+SHELL = /bin/sh
 
-srcdir = @srcdir@
-top_srcdir = @top_srcdir@
-VPATH = @srcdir@
-prefix = @prefix@
-exec_prefix = @exec_prefix@
+srcdir = .
+top_srcdir = ..
+prefix = /usr/local
+exec_prefix = ${prefix}
 
-bindir = @bindir@
-sbindir = @sbindir@
-libexecdir = @libexecdir@
-datadir = @datadir@
-sysconfdir = @sysconfdir@
-sharedstatedir = @sharedstatedir@
-localstatedir = @localstatedir@
-libdir = @libdir@
-infodir = @infodir@
-mandir = @mandir@
-includedir = @includedir@
+bindir = ${exec_prefix}/bin
+sbindir = ${exec_prefix}/sbin
+libexecdir = ${exec_prefix}/libexec
+datadir = ${prefix}/share
+sysconfdir = ${prefix}/etc
+sharedstatedir = ${prefix}/com
+localstatedir = ${prefix}/var
+libdir = ${exec_prefix}/lib
+infodir = ${prefix}/info
+mandir = ${prefix}/man
+includedir = ${prefix}/include
 oldincludedir = /usr/include
 
 DESTDIR =
 
-pkgdatadir = $(datadir)/@PACKAGE@
-pkglibdir = $(libdir)/@PACKAGE@
-pkgincludedir = $(includedir)/@PACKAGE@
+pkgdatadir = $(datadir)/glib
+pkglibdir = $(libdir)/glib
+pkgincludedir = $(includedir)/glib
 
 top_builddir = ..
 
-ACLOCAL = @ACLOCAL@
-AUTOCONF = @AUTOCONF@
-AUTOMAKE = @AUTOMAKE@
-AUTOHEADER = @AUTOHEADER@
+ACLOCAL = aclocal
+AUTOCONF = autoconf
+AUTOMAKE = automake
+AUTOHEADER = autoheader
 
-INSTALL = @INSTALL@
-INSTALL_PROGRAM = @INSTALL_PROGRAM@ $(AM_INSTALL_PROGRAM_FLAGS)
-INSTALL_DATA = @INSTALL_DATA@
-INSTALL_SCRIPT = @INSTALL_SCRIPT@
-transform = @program_transform_name@
+INSTALL = /usr/bin/install -c
+INSTALL_PROGRAM = ${INSTALL} $(AM_INSTALL_PROGRAM_FLAGS)
+INSTALL_DATA = ${INSTALL} -m 644
+INSTALL_SCRIPT = ${INSTALL_PROGRAM}
+transform = s,x,x,
 
 NORMAL_INSTALL = :
 PRE_INSTALL = :
@@ -57,43 +57,43 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-host_alias = @host_alias@
-host_triplet = @host@
+host_alias = x86_64-pc-linux-gnu
+host_triplet = x86_64-pc-linux-gnu
 AS = @AS@
-CC = @CC@
+CC = gcc
 DLLTOOL = @DLLTOOL@
-ENABLE_MEM_CHECK = @ENABLE_MEM_CHECK@
-ENABLE_MEM_PROFILE = @ENABLE_MEM_PROFILE@
-GLIB_BINARY_AGE = @GLIB_BINARY_AGE@
-GLIB_DEBUG_FLAGS = @GLIB_DEBUG_FLAGS@
-GLIB_INTERFACE_AGE = @GLIB_INTERFACE_AGE@
-GLIB_MAJOR_VERSION = @GLIB_MAJOR_VERSION@
-GLIB_MICRO_VERSION = @GLIB_MICRO_VERSION@
-GLIB_MINOR_VERSION = @GLIB_MINOR_VERSION@
-GLIB_VERSION = @GLIB_VERSION@
-G_MODULE_BROKEN_RTLD_GLOBAL = @G_MODULE_BROKEN_RTLD_GLOBAL@
-G_MODULE_HAVE_DLERROR = @G_MODULE_HAVE_DLERROR@
-G_MODULE_IMPL = @G_MODULE_IMPL@
-G_MODULE_LDFLAGS = @G_MODULE_LDFLAGS@
-G_MODULE_LIBS = @G_MODULE_LIBS@
-G_MODULE_NEED_USCORE = @G_MODULE_NEED_USCORE@
-G_THREAD_CFLAGS = @G_THREAD_CFLAGS@
-G_THREAD_LIBS = @G_THREAD_LIBS@
-LIBTOOL = @LIBTOOL@
-LN_S = @LN_S@
-LT_AGE = @LT_AGE@
-LT_CURRENT = @LT_CURRENT@
-LT_RELEASE = @LT_RELEASE@
-LT_REVISION = @LT_REVISION@
-MAINT = @MAINT@
-MAKEINFO = @MAKEINFO@
+ENABLE_MEM_CHECK = 
+ENABLE_MEM_PROFILE = 
+GLIB_BINARY_AGE = 10
+GLIB_DEBUG_FLAGS = 
+GLIB_INTERFACE_AGE = 10
+GLIB_MAJOR_VERSION = 1
+GLIB_MICRO_VERSION = 23
+GLIB_MINOR_VERSION = 2
+GLIB_VERSION = 1.2.23
+G_MODULE_BROKEN_RTLD_GLOBAL = 0
+G_MODULE_HAVE_DLERROR = 1
+G_MODULE_IMPL = G_MODULE_IMPL_DL
+G_MODULE_LDFLAGS = -rdynamic
+G_MODULE_LIBS = 
+G_MODULE_NEED_USCORE = 0
+G_THREAD_CFLAGS =  -D_REENTRANT
+G_THREAD_LIBS = -lpthread
+LIBTOOL = $(SHELL) $(top_builddir)/libtool
+LN_S = ln -s
+LT_AGE = 0
+LT_CURRENT = 13
+LT_RELEASE = 1.2
+LT_REVISION = 10
+MAINT = #
+MAKEINFO = makeinfo
 OBJDUMP = @OBJDUMP@
-PACKAGE = @PACKAGE@
-RANLIB = @RANLIB@
-VERSION = @VERSION@
+PACKAGE = glib
+RANLIB = ranlib
+VERSION = 1.2.23
 
 INCLUDES = -I$(top_srcdir) -I$(top_srcdir)/gmodule \
-	-DG_LOG_DOMAIN=\"GModule\" @GLIB_DEBUG_FLAGS@
+	-DG_LOG_DOMAIN=\"GModule\" 
 
 
 EXTRA_DIST = \
@@ -118,36 +118,35 @@ lib_LTLIBRARIES = libgmodule.la libgplugin_a.la libgplugin_b.la
 
 libgmodule_la_SOURCES = gmodule.c
 libgmodule_la_LDFLAGS = \
-	@G_MODULE_LDFLAGS@ \
-	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) -export-dynamic
+	-rdynamic -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)
 
 
 libgmodule_la_DEPENDENCIES = $(libglib)
-libgmodule_la_LIBADD = @G_MODULE_LIBS@ $(libglib)
+libgmodule_la_LIBADD =  $(libglib)
 # we should really depend on $(libglib) for libgmodule.la, but libtool has a
 # problem with this ;(
 
 libgplugin_a_la_SOURCES = libgplugin_a.c
-libgplugin_a_la_LDFLAGS = @G_MODULE_LDFLAGS@ -avoid-version -module
-libgplugin_a_la_LIBADD = @G_MODULE_LIBS@ $(libglib)
+libgplugin_a_la_LDFLAGS = -rdynamic -avoid-version -module
+libgplugin_a_la_LIBADD =  $(libglib)
 
 libgplugin_b_la_SOURCES = libgplugin_b.c
-libgplugin_b_la_LDFLAGS = @G_MODULE_LDFLAGS@ -avoid-version -module
-libgplugin_b_la_LIBADD = @G_MODULE_LIBS@ $(libglib)
+libgplugin_b_la_LDFLAGS = -rdynamic -avoid-version -module
+libgplugin_b_la_LIBADD =  $(libglib)
 
 noinst_PROGRAMS = testgmodule
-testgmodule_LDFLAGS =  @G_MODULE_LDFLAGS@
-testgmodule_LDADD = libgmodule.la @G_MODULE_LIBS@
+testgmodule_LDFLAGS =  -rdynamic
+testgmodule_LDADD = libgmodule.la 
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = ../config.h
 CONFIG_CLEAN_FILES =  gmoduleconf.h
 LTLIBRARIES =  $(lib_LTLIBRARIES)
 
 
-DEFS = @DEFS@ -I. -I$(srcdir) -I..
-CPPFLAGS = @CPPFLAGS@
-LDFLAGS = @LDFLAGS@
-LIBS = @LIBS@
+DEFS = -DHAVE_CONFIG_H -I. -I$(srcdir) -I..
+CPPFLAGS = 
+LDFLAGS = 
+LIBS = 
 libgmodule_la_OBJECTS =  gmodule.lo
 libgplugin_a_la_DEPENDENCIES =  $(top_builddir)/libglib.la
 libgplugin_a_la_OBJECTS =  libgplugin_a.lo
@@ -158,7 +157,7 @@ PROGRAMS =  $(noinst_PROGRAMS)
 testgmodule_SOURCES = testgmodule.c
 testgmodule_OBJECTS =  testgmodule.o
 testgmodule_DEPENDENCIES =  libgmodule.la
-CFLAGS = @CFLAGS@
+CFLAGS = -g -O2 -Wall  -D_REENTRANT
 COMPILE = $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
@@ -181,7 +180,7 @@ OBJECTS = $(libgmodule_la_OBJECTS) $(libgplugin_a_la_OBJECTS) $(libgplugin_b_la_
 all: all-redirect
 .SUFFIXES:
 .SUFFIXES: .S .c .lo .o .s
-$(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4) 
+$(srcdir)/Makefile.in: # Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4) 
 	cd $(top_srcdir) && $(AUTOMAKE) --gnu gmodule/Makefile
 
 Makefile: $(srcdir)/Makefile.in  $(top_builddir)/config.status $(BUILT_SOURCES)

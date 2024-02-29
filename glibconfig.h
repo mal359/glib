@@ -31,25 +31,18 @@ typedef signed short gint16;
 typedef unsigned short guint16;
 typedef signed int gint32;
 typedef unsigned int guint32;
-
-#if defined (__GNUC__) && (__GNUC__ > 2 || (__GNUC__ == 2 && __GNUC_MINOR__ >= 8))
-#  define G_GNUC_EXTENSION __extension__
-#else
-#  define G_GNUC_EXTENSION
-#endif
-
 #define G_HAVE_GINT64 1
 
-G_GNUC_EXTENSION typedef signed long long gint64;
-G_GNUC_EXTENSION typedef unsigned long long guint64;
+typedef signed long gint64;
+typedef unsigned long guint64;
 
-#define G_GINT64_CONSTANT(val)	(G_GNUC_EXTENSION (val##LL))
+#define G_GINT64_CONSTANT(val)	(val##L)
 
-#define GPOINTER_TO_INT(p)	((gint)   (p))
-#define GPOINTER_TO_UINT(p)	((guint)  (p))
+#define GPOINTER_TO_INT(p)	((gint)  (glong) (p))
+#define GPOINTER_TO_UINT(p)	((guint) (gulong) (p))
 
-#define GINT_TO_POINTER(i)	((gpointer)  (i))
-#define GUINT_TO_POINTER(u)	((gpointer)  (u))
+#define GINT_TO_POINTER(i)	((gpointer) (glong) (i))
+#define GUINT_TO_POINTER(u)	((gpointer) (gulong) (u))
 
 #ifdef NeXT /* @#%@! NeXTStep */
 # define g_ATEXIT(proc)	(!atexit (proc))
@@ -61,10 +54,11 @@ G_GNUC_EXTENSION typedef unsigned long long guint64;
 
 #define GLIB_MAJOR_VERSION 1
 #define GLIB_MINOR_VERSION 2
-#define GLIB_MICRO_VERSION 10
+#define GLIB_MICRO_VERSION 23
 
 
-#define G_VA_COPY	__va_copy
+#define G_VA_COPY	va_copy
+#define G_VA_COPY_AS_ARRAY 1
 
 #ifdef	__cplusplus
 #define	G_HAVE_INLINE	1
@@ -81,13 +75,13 @@ struct _GStaticMutex
 {
   struct _GMutex *runtime_mutex;
   union {
-    char   pad[24];
+    char   pad[40];
     double dummy_double;
     void  *dummy_pointer;
     long   dummy_long;
   } aligned_pad_u;
 };
-#define	G_STATIC_MUTEX_INIT	{ NULL, { { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} } }
+#define	G_STATIC_MUTEX_INIT	{ NULL, { { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} } }
 #define	g_static_mutex_get_mutex(mutex)   (g_thread_use_default_impl ? ((GMutex*) &((mutex)->aligned_pad_u)) :    g_static_mutex_get_mutex_impl (&((mutex)->runtime_mutex)))
 
 #define GINT16_TO_LE(val)	((gint16) (val))
@@ -102,10 +96,10 @@ struct _GStaticMutex
 #define GUINT64_TO_LE(val)	((guint64) (val))
 #define GINT64_TO_BE(val)	((gint64) GUINT64_SWAP_LE_BE (val))
 #define GUINT64_TO_BE(val)	(GUINT64_SWAP_LE_BE (val))
-#define GLONG_TO_LE(val)	((glong) GINT32_TO_LE (val))
-#define GULONG_TO_LE(val)	((gulong) GUINT32_TO_LE (val))
-#define GLONG_TO_BE(val)	((glong) GINT32_TO_BE (val))
-#define GULONG_TO_BE(val)	((gulong) GUINT32_TO_BE (val))
+#define GLONG_TO_LE(val)	((glong) GINT64_TO_LE (val))
+#define GULONG_TO_LE(val)	((gulong) GUINT64_TO_LE (val))
+#define GLONG_TO_BE(val)	((glong) GINT64_TO_BE (val))
+#define GULONG_TO_BE(val)	((gulong) GUINT64_TO_BE (val))
 #define GINT_TO_LE(val)		((gint) GINT32_TO_LE (val))
 #define GUINT_TO_LE(val)	((guint) GUINT32_TO_LE (val))
 #define GINT_TO_BE(val)		((gint) GINT32_TO_BE (val))
