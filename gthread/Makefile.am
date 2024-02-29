@@ -17,9 +17,11 @@ libgthread_la_SOURCES = gthread.c
 libgthread_la_LDFLAGS = \
 	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
 	-release $(LT_RELEASE) \
+	-no-undefined -Wl,--no-undefined \
 	-export-dynamic
 
-libgthread_la_LIBADD = @G_THREAD_LIBS@
+libgthread_la_DEPENDENCIES = $(libglib)
+libgthread_la_LIBADD = @G_THREAD_LIBS@ $(libglib)
 
 noinst_PROGRAMS = testgthread
-testgthread_LDADD = ../libglib.la libgthread.la 
+testgthread_LDADD = libgthread.la 

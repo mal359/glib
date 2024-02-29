@@ -1145,7 +1145,7 @@ cat > conftest.$ac_ext << EOF
 #line 1146 "configure"
 #include "confdefs.h"
 
-main(){return(0);}
+int main(){return(0);}
 EOF
 if { (eval echo configure:1151: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext}; then
   ac_cv_prog_cc_works=yes
@@ -1838,7 +1838,7 @@ cat > conftest.$ac_ext << EOF
 #line 1839 "configure"
 #include "confdefs.h"
 
-main(){return(0);}
+int main(){return(0);}
 EOF
 if { (eval echo configure:1844: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext}; then
   ac_cv_prog_cc_works=yes
@@ -2343,6 +2343,7 @@ else
 #line 2344 "configure"
 #include "confdefs.h"
 #include <ctype.h>
+#include <stdlib.h>
 #define ISLOWER(c) ('a' <= (c) && (c) <= 'z')
 #define TOUPPER(c) (ISLOWER(c) ? 'A' + ((c) - 'a') : (c))
 #define XOR(e, f) (((e) && !(f)) || (!(e) && (f)))
@@ -2550,12 +2551,12 @@ else
 #line 2551 "configure"
 #include "confdefs.h"
 #include <stdio.h>
-main()
+int main()
 {
   FILE *f=fopen("conftestval", "w");
-  if (!f) exit(1);
+  if (!f) return(1);
   fprintf(f, "%d\n", sizeof(char));
-  exit(0);
+  return(0);
 }
 EOF
 if { (eval echo configure:2562: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
@@ -2589,12 +2590,12 @@ else
 #line 2590 "configure"
 #include "confdefs.h"
 #include <stdio.h>
-main()
+int main()
 {
   FILE *f=fopen("conftestval", "w");
-  if (!f) exit(1);
+  if (!f) return(1);
   fprintf(f, "%d\n", sizeof(short));
-  exit(0);
+  return(0);
 }
 EOF
 if { (eval echo configure:2601: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
@@ -2628,12 +2629,12 @@ else
 #line 2629 "configure"
 #include "confdefs.h"
 #include <stdio.h>
-main()
+int main()
 {
   FILE *f=fopen("conftestval", "w");
-  if (!f) exit(1);
+  if (!f) return(1);
   fprintf(f, "%d\n", sizeof(long));
-  exit(0);
+  return(0);
 }
 EOF
 if { (eval echo configure:2640: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
@@ -2667,12 +2668,12 @@ else
 #line 2668 "configure"
 #include "confdefs.h"
 #include <stdio.h>
-main()
+int main()
 {
   FILE *f=fopen("conftestval", "w");
-  if (!f) exit(1);
+  if (!f) return(1);
   fprintf(f, "%d\n", sizeof(int));
-  exit(0);
+  return(0);
 }
 EOF
 if { (eval echo configure:2679: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
@@ -2706,12 +2707,12 @@ else
 #line 2707 "configure"
 #include "confdefs.h"
 #include <stdio.h>
-main()
+int main()
 {
   FILE *f=fopen("conftestval", "w");
-  if (!f) exit(1);
+  if (!f) return(1);
   fprintf(f, "%d\n", sizeof(void *));
-  exit(0);
+  return(0);
 }
 EOF
 if { (eval echo configure:2718: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
@@ -2745,12 +2746,12 @@ else
 #line 2746 "configure"
 #include "confdefs.h"
 #include <stdio.h>
-main()
+int main()
 {
   FILE *f=fopen("conftestval", "w");
-  if (!f) exit(1);
+  if (!f) return(1);
   fprintf(f, "%d\n", sizeof(long long));
-  exit(0);
+  return(0);
 }
 EOF
 if { (eval echo configure:2757: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
@@ -3592,6 +3593,8 @@ cat > conftest.$ac_ext <<EOF
 #line 3593 "configure"
 #include "confdefs.h"
 
+#include <stdlib.h>
+
 int main() {
 
 extern char *sys_siglist[];
@@ -3624,6 +3627,7 @@ cat > conftest.$ac_ext <<EOF
 #line 3625 "configure"
 #include "confdefs.h"
 #include <signal.h>
+#include <string.h>
 int main() {
 
 strlen (sys_siglist[0]);
@@ -3964,6 +3968,7 @@ else
 #include "confdefs.h"
 
 	#include <stdarg.h>
+	#include <stdlib.h>
 	void f (int i, ...) {
 	va_list args1, args2;
 	va_start (args1, i);
@@ -5486,8 +5491,9 @@ else
 #line 5487 "configure"
 #include "confdefs.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <$mutex_header_file>
-main()
+int main()
 {
   FILE *f=fopen("conftestval", "w");
   if (!f) exit(1);
@@ -5526,8 +5532,9 @@ else
 #line 5527 "configure"
 #include "confdefs.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <$mutex_header_file>
-main()
+int main()
 {
   static $mutex_default_type tv = $mutex_default_init;
   char *p = (char*) &tv;
