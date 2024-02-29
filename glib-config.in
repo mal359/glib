@@ -1,10 +1,7 @@
 #!/bin/sh
 
-[ -z "$PKG_CONFIG" ] && PKG_CONFIG="pkg-config"
-prefix=`${PKG_CONFIG} --variable prefix glib`
-exec_prefix=`${PKG_CONFIG} --variable exec_prefix glib`
-libdir=`${PKG_CONFIG} --variable libdir glib`
-includedir=`${PKG_CONFIG} --variable includedir glib`
+prefix=@prefix@
+exec_prefix=@exec_prefix@
 exec_prefix_set=no
 
 usage()
@@ -91,7 +88,7 @@ if test "$echo_cflags" = "yes"; then
 	if test "$lib_gthread" = "yes"; then
 		cflags="$cflags @G_THREAD_CFLAGS@"
 	fi
-	echo -I${includedir}/glib-1.2 -I${libdir}/glib/include $includes $cflags
+	echo -I@includedir@/glib-1.2 -I@libdir@/glib/include $includes $cflags
 fi
 if test "$echo_libs" = "yes"; then
 	libsp=""
@@ -107,5 +104,5 @@ if test "$echo_libs" = "yes"; then
 		libsp="@G_MODULE_LDFLAGS@ -lgmodule $libsp"
 		libsa="$libsa @G_MODULE_LIBS@"
 	fi
-	echo $libsp $libsa
+	echo -L@libdir@ $libsp $libsa
 fi

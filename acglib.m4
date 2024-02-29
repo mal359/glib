@@ -1,10 +1,3 @@
-AC_DEFUN([GLIB_AC_DIVERT_BEFORE_HELP],
-[ifdef([m4_divert_text], [m4_divert_text([NOTICE],[$1])],
-	[ifdef([AC_DIVERT], [AC_DIVERT([NOTICE],[$1])],
-		[AC_DIVERT_PUSH(AC_DIVERSION_NOTICE)dnl
-$1
-AC_DIVERT_POP()])])])
-
 dnl GLIB_IF_VAR_EQ (ENV_VAR, VALUE [, EQUALS_ACTION] [, ELSE_ACTION])
 AC_DEFUN(GLIB_IF_VAR_EQ,[
         case "$[$1]" in

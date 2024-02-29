@@ -13,8 +13,6 @@ glib-config: glib-config.in
 
 INCLUDES = -DG_LOG_DOMAIN=g_log_domain_glib @GLIB_DEBUG_FLAGS@
 
-AM_CFLAGS = -prefer-pic
-
 EXTRA_DIST = \
 	glib.m4			\
 	glib.spec.in		\
@@ -72,7 +70,7 @@ configinclude_DATA = \
 
 CONFIGURE_DEPENDENCIES = acglib.m4		
 
-BUILT_SOURCES += stamp-gc-h #note: not glibconfig.h
+BUILT_SOURCES = stamp-gc-h #note: not glibconfig.h
 glibconfig.h: stamp-gc-h
 	@:
 stamp-gc-h: config.status
@@ -82,7 +80,6 @@ stamp-gc-h: config.status
 libglib_la_LDFLAGS = \
 	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
 	-release $(LT_RELEASE) \
-	-no-undefined \
 	-export-dynamic
 
 noinst_PROGRAMS = testglib testgdate testgdateparser
