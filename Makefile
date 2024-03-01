@@ -216,7 +216,7 @@ testgdateparser_DEPENDENCIES =  libglib.la
 testgdateparser_LDFLAGS = 
 SCRIPTS =  $(bin_SCRIPTS)
 
-CFLAGS = -g -O2 -Wall  -D_REENTRANT
+CFLAGS = -g -O2 -Wall
 COMPILE = $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)

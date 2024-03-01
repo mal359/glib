@@ -180,7 +180,7 @@ type_test_SOURCES = type-test.c
 type_test_OBJECTS =  type-test.o
 type_test_DEPENDENCIES =  $(top_builddir)/libglib.la
 type_test_LDFLAGS = 
-CFLAGS = -g -O2 -Wall  -D_REENTRANT
+CFLAGS = -g -O2 -Wall
 COMPILE = $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)

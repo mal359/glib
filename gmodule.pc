@@ -6,6 +6,6 @@ includedir=${prefix}/include
 Name: GModule
 Description: Dynamic module loader for GLib
 Requires: glib
-Version: 1.2.23
+Version: 1.2.10
 Libs: -L${libdir} -rdynamic -lgmodule 
 Cflags:

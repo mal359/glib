@@ -121,11 +121,10 @@ configure:3503: checking for memmove
 configure:3503: checking for vsnprintf
 configure:3503: checking for strcasecmp
 configure:3503: checking for strncasecmp
-configure:3503: checking for poll
 configure:3558: checking for sys_errlist
 configure:3571: gcc -o conftest -g -O2 -Wall   conftest.c  1>&5
-/usr/bin/ld: /tmp/user/1000/ccNB8dEV.o: warning: relocation against `sys_nerr' in read-only section `.text.startup'
-/usr/bin/ld: /tmp/user/1000/ccNB8dEV.o: in function `main':
+/usr/bin/ld: /tmp/user/1000/ccZYIiwj.o: warning: relocation against `sys_nerr' in read-only section `.text.startup'
+/usr/bin/ld: /tmp/user/1000/ccZYIiwj.o: in function `main':
 /home/matt/git_stuff/glib/conftest.c:3566:(.text.startup+0x2): undefined reference to `sys_nerr'
 /usr/bin/ld: /home/matt/git_stuff/glib/conftest.c:3566:(.text.startup+0x9): undefined reference to `sys_errlist'
 /usr/bin/ld: warning: creating DT_TEXTREL in a PIE
@@ -200,8 +199,8 @@ configure:3870: checking if iswalnum() and friends are properly defined
 configure:3892: gcc -o conftest -g -O2 -Wall   conftest.c  1>&5
 configure: In function 'main':
 configure:3887:1: warning: statement with no effect [-Wunused-value]
- 3887 | #else
-      | ^~~~~                
+ 3887 | #  endif
+      | ^~~~~~~~             
 configure:3913: checking whether realloc (NULL,) will work
 configure:3955: checking for an implementation of va_copy()
 configure:4000: checking for an implementation of __va_copy()
@@ -222,9 +221,9 @@ configure:5284: checking for getpwuid_r
 configure:5361: checking whether pthread_getspecific is posix like
 configure:5371: gcc -c -g -O2 -Wall  -D_REENTRANT  conftest.c 1>&5
 configure: In function 'main':
-configure:5367:8: error: too many arguments to function 'pthread_getspecific'
- 5367 |                 echo $ac_n "checking whether pthread_getspecific is posix like""... $ac_c" 1>&6
-      | ^               ~~~~~~~~~~~~~~~~~
+configure:5367:1: error: too many arguments to function 'pthread_getspecific'
+ 5367 | else
+      | ^~~~               
 In file included from configure:5365:
 /usr/include/pthread.h:1305:14: note: declared here
  1305 | extern void *pthread_getspecific (pthread_key_t __key) __THROW;
@@ -249,13 +248,13 @@ configure:5416: checking whether pthread_cond_timedwait is posix like
 configure:5436: gcc -o conftest -g -O2 -Wall  -D_REENTRANT   conftest.c  -lpthread 1>&5
 configure: In function 'main':
 configure:5427:19: error: storage size of 'tval' isn't known
- 5427 | else
+ 5427 | EOF
       |                   ^   
 configure:5429:4: error: implicit declaration of function 'gettimeofday' [-Wimplicit-function-declaration]
- 5429 | #line 5422 "configure"
-      |    ^~~~~~~~~~~~
+ 5429 | fi
+      |    ^           
 configure:5427:19: warning: unused variable 'tval' [-Wunused-variable]
- 5427 | else
+ 5427 | EOF
       |                   ^   
 configure: failed program was:
 #line 5422 "configure"
@@ -273,5 +272,6 @@ configure: failed program was:
 				!= -1;}
 configure:5479: checking size of pthread_mutex_t
 configure:5519: checking byte contents of pthread_mutex_t
+configure:5636: checking for poll
 configure:5580: checking system definitions for POLLIN POLLOUT POLLPRI POLLERR POLLHUP POLLNVAL
-configure:5611: gcc -o conftest -g -O2 -Wall  -D_REENTRANT   conftest.c  1>&5
+configure:5611: gcc -o conftest -g -O2 -Wall   conftest.c  1>&5

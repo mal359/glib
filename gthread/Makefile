@@ -136,7 +136,7 @@ testgthread_SOURCES = testgthread.c
 testgthread_OBJECTS =  testgthread.o
 testgthread_DEPENDENCIES =  libgthread.la
 testgthread_LDFLAGS = 
-CFLAGS = -g -O2 -Wall  -D_REENTRANT
+CFLAGS = -g -O2 -Wall
 COMPILE = $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)

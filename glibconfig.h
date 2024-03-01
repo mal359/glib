@@ -54,7 +54,7 @@ typedef unsigned long guint64;
 
 #define GLIB_MAJOR_VERSION 1
 #define GLIB_MINOR_VERSION 2
-#define GLIB_MICRO_VERSION 23
+#define GLIB_MICRO_VERSION 10
 
 
 #define G_VA_COPY	va_copy

@@ -49,7 +49,7 @@ sed 's/%@/@@/; s/@%/@@/; s/%g$/@g/; /@g$/s/[\\&%]/\\&/g;
 /^[ 	]*VPATH[ 	]*=[^:]*$/d
 
 s%@SHELL@%/bin/sh%g
-s%@CFLAGS@%-g -O2 -Wall  -D_REENTRANT%g
+s%@CFLAGS@%-g -O2 -Wall%g
 s%@CPPFLAGS@%%g
 s%@CXXFLAGS@%%g
 s%@FFLAGS@%%g
@@ -466,21 +466,18 @@ ${ac_eA}HAVE_STRCASECMP${ac_eB}HAVE_STRCASECMP${ac_eC}1${ac_eD}
 ${ac_dA}HAVE_STRNCASECMP${ac_dB}HAVE_STRNCASECMP${ac_dC}1${ac_dD}
 ${ac_uA}HAVE_STRNCASECMP${ac_uB}HAVE_STRNCASECMP${ac_uC}1${ac_uD}
 ${ac_eA}HAVE_STRNCASECMP${ac_eB}HAVE_STRNCASECMP${ac_eC}1${ac_eD}
-${ac_dA}HAVE_POLL${ac_dB}HAVE_POLL${ac_dC}1${ac_dD}
-${ac_uA}HAVE_POLL${ac_uB}HAVE_POLL${ac_uC}1${ac_uD}
-${ac_eA}HAVE_POLL${ac_eB}HAVE_POLL${ac_eC}1${ac_eD}
 ${ac_dA}NO_SYS_ERRLIST${ac_dB}NO_SYS_ERRLIST${ac_dC}1${ac_dD}
 ${ac_uA}NO_SYS_ERRLIST${ac_uB}NO_SYS_ERRLIST${ac_uC}1${ac_uD}
 ${ac_eA}NO_SYS_ERRLIST${ac_eB}NO_SYS_ERRLIST${ac_eC}1${ac_eD}
+${ac_dA}NO_SYS_SIGLIST${ac_dB}NO_SYS_SIGLIST${ac_dC}1${ac_dD}
+${ac_uA}NO_SYS_SIGLIST${ac_uB}NO_SYS_SIGLIST${ac_uC}1${ac_uD}
+${ac_eA}NO_SYS_SIGLIST${ac_eB}NO_SYS_SIGLIST${ac_eC}1${ac_eD}
 CEOF
   sed -f conftest.frag conftest.in > conftest.out
   rm -f conftest.in
   mv conftest.out conftest.in
 
   cat > conftest.frag <<CEOF
-${ac_dA}NO_SYS_SIGLIST${ac_dB}NO_SYS_SIGLIST${ac_dC}1${ac_dD}
-${ac_uA}NO_SYS_SIGLIST${ac_uB}NO_SYS_SIGLIST${ac_uC}1${ac_uD}
-${ac_eA}NO_SYS_SIGLIST${ac_eB}NO_SYS_SIGLIST${ac_eC}1${ac_eD}
 ${ac_dA}NO_SYS_SIGLIST_DECL${ac_dB}NO_SYS_SIGLIST_DECL${ac_dC}1${ac_dD}
 ${ac_uA}NO_SYS_SIGLIST_DECL${ac_uB}NO_SYS_SIGLIST_DECL${ac_uC}1${ac_uD}
 ${ac_eA}NO_SYS_SIGLIST_DECL${ac_eB}NO_SYS_SIGLIST_DECL${ac_eC}1${ac_eD}
@@ -490,57 +487,57 @@ ${ac_eA}HAVE_WCHAR_H${ac_eB}HAVE_WCHAR_H${ac_eC}1${ac_eD}
 ${ac_dA}HAVE_WCTYPE_H${ac_dB}HAVE_WCTYPE_H${ac_dC}1${ac_dD}
 ${ac_uA}HAVE_WCTYPE_H${ac_uB}HAVE_WCTYPE_H${ac_uC}1${ac_uD}
 ${ac_eA}HAVE_WCTYPE_H${ac_eB}HAVE_WCTYPE_H${ac_eC}1${ac_eD}
+${ac_dA}G_VA_COPY${ac_dB}G_VA_COPY${ac_dC}va_copy${ac_dD}
+${ac_uA}G_VA_COPY${ac_uB}G_VA_COPY${ac_uC}va_copy${ac_uD}
+${ac_eA}G_VA_COPY${ac_eB}G_VA_COPY${ac_eC}va_copy${ac_eD}
 CEOF
   sed -f conftest.frag conftest.in > conftest.out
   rm -f conftest.in
   mv conftest.out conftest.in
 
   cat > conftest.frag <<CEOF
-${ac_dA}REALLOC_0_WORKS${ac_dB}REALLOC_0_WORKS${ac_dC}1${ac_dD}
-${ac_uA}REALLOC_0_WORKS${ac_uB}REALLOC_0_WORKS${ac_uC}1${ac_uD}
-${ac_eA}REALLOC_0_WORKS${ac_eB}REALLOC_0_WORKS${ac_eC}1${ac_eD}
-${ac_dA}G_VA_COPY${ac_dB}G_VA_COPY${ac_dC}va_copy${ac_dD}
-${ac_uA}G_VA_COPY${ac_uB}G_VA_COPY${ac_uC}va_copy${ac_uD}
-${ac_eA}G_VA_COPY${ac_eB}G_VA_COPY${ac_eC}va_copy${ac_eD}
 ${ac_dA}G_VA_COPY_AS_ARRAY${ac_dB}G_VA_COPY_AS_ARRAY${ac_dC}1${ac_dD}
 ${ac_uA}G_VA_COPY_AS_ARRAY${ac_uB}G_VA_COPY_AS_ARRAY${ac_uC}1${ac_uD}
 ${ac_eA}G_VA_COPY_AS_ARRAY${ac_eB}G_VA_COPY_AS_ARRAY${ac_eC}1${ac_eD}
 ${ac_dA}HAVE_LOCALTIME_R${ac_dB}HAVE_LOCALTIME_R${ac_dC}1${ac_dD}
 ${ac_uA}HAVE_LOCALTIME_R${ac_uB}HAVE_LOCALTIME_R${ac_uC}1${ac_uD}
 ${ac_eA}HAVE_LOCALTIME_R${ac_eB}HAVE_LOCALTIME_R${ac_eC}1${ac_eD}
-CEOF
-  sed -f conftest.frag conftest.in > conftest.out
-  rm -f conftest.in
-  mv conftest.out conftest.in
-
-  cat > conftest.frag <<CEOF
 ${ac_dA}HAVE_RAND_R${ac_dB}HAVE_RAND_R${ac_dC}1${ac_dD}
 ${ac_uA}HAVE_RAND_R${ac_uB}HAVE_RAND_R${ac_uC}1${ac_uD}
 ${ac_eA}HAVE_RAND_R${ac_eB}HAVE_RAND_R${ac_eC}1${ac_eD}
 ${ac_dA}HAVE_PTHREAD_GETSPECIFIC_POSIX${ac_dB}HAVE_PTHREAD_GETSPECIFIC_POSIX${ac_dC}1${ac_dD}
 ${ac_uA}HAVE_PTHREAD_GETSPECIFIC_POSIX${ac_uB}HAVE_PTHREAD_GETSPECIFIC_POSIX${ac_uC}1${ac_uD}
 ${ac_eA}HAVE_PTHREAD_GETSPECIFIC_POSIX${ac_eB}HAVE_PTHREAD_GETSPECIFIC_POSIX${ac_eC}1${ac_eD}
-${ac_dA}HAVE_PTHREAD_MUTEX_TRYLOCK_POSIX${ac_dB}HAVE_PTHREAD_MUTEX_TRYLOCK_POSIX${ac_dC}1${ac_dD}
-${ac_uA}HAVE_PTHREAD_MUTEX_TRYLOCK_POSIX${ac_uB}HAVE_PTHREAD_MUTEX_TRYLOCK_POSIX${ac_uC}1${ac_uD}
-${ac_eA}HAVE_PTHREAD_MUTEX_TRYLOCK_POSIX${ac_eB}HAVE_PTHREAD_MUTEX_TRYLOCK_POSIX${ac_eC}1${ac_eD}
-${ac_dA}HAVE_PTHREAD_COND_TIMEDWAIT_POSIX${ac_dB}HAVE_PTHREAD_COND_TIMEDWAIT_POSIX${ac_dC}1${ac_dD}
-${ac_uA}HAVE_PTHREAD_COND_TIMEDWAIT_POSIX${ac_uB}HAVE_PTHREAD_COND_TIMEDWAIT_POSIX${ac_uC}1${ac_uD}
-${ac_eA}HAVE_PTHREAD_COND_TIMEDWAIT_POSIX${ac_eB}HAVE_PTHREAD_COND_TIMEDWAIT_POSIX${ac_eC}1${ac_eD}
 CEOF
   sed -f conftest.frag conftest.in > conftest.out
   rm -f conftest.in
   mv conftest.out conftest.in
 
   cat > conftest.frag <<CEOF
+${ac_dA}HAVE_PTHREAD_MUTEX_TRYLOCK_POSIX${ac_dB}HAVE_PTHREAD_MUTEX_TRYLOCK_POSIX${ac_dC}1${ac_dD}
+${ac_uA}HAVE_PTHREAD_MUTEX_TRYLOCK_POSIX${ac_uB}HAVE_PTHREAD_MUTEX_TRYLOCK_POSIX${ac_uC}1${ac_uD}
+${ac_eA}HAVE_PTHREAD_MUTEX_TRYLOCK_POSIX${ac_eB}HAVE_PTHREAD_MUTEX_TRYLOCK_POSIX${ac_eC}1${ac_eD}
+${ac_dA}HAVE_PTHREAD_COND_TIMEDWAIT_POSIX${ac_dB}HAVE_PTHREAD_COND_TIMEDWAIT_POSIX${ac_dC}1${ac_dD}
+${ac_uA}HAVE_PTHREAD_COND_TIMEDWAIT_POSIX${ac_uB}HAVE_PTHREAD_COND_TIMEDWAIT_POSIX${ac_uC}1${ac_uD}
+${ac_eA}HAVE_PTHREAD_COND_TIMEDWAIT_POSIX${ac_eB}HAVE_PTHREAD_COND_TIMEDWAIT_POSIX${ac_eC}1${ac_eD}
 ${ac_dA}G_THREAD_SOURCE${ac_dB}G_THREAD_SOURCE${ac_dC}"gthread-posix.c"${ac_dD}
 ${ac_uA}G_THREAD_SOURCE${ac_uB}G_THREAD_SOURCE${ac_uC}"gthread-posix.c"${ac_uD}
 ${ac_eA}G_THREAD_SOURCE${ac_eB}G_THREAD_SOURCE${ac_eC}"gthread-posix.c"${ac_eD}
 ${ac_dA}GLIB_SIZEOF_GMUTEX${ac_dB}GLIB_SIZEOF_GMUTEX${ac_dC}40${ac_dD}
 ${ac_uA}GLIB_SIZEOF_GMUTEX${ac_uB}GLIB_SIZEOF_GMUTEX${ac_uC}40${ac_uD}
 ${ac_eA}GLIB_SIZEOF_GMUTEX${ac_eB}GLIB_SIZEOF_GMUTEX${ac_eC}40${ac_eD}
+CEOF
+  sed -f conftest.frag conftest.in > conftest.out
+  rm -f conftest.in
+  mv conftest.out conftest.in
+
+  cat > conftest.frag <<CEOF
 ${ac_dA}GLIB_BYTE_CONTENTS_GMUTEX${ac_dB}GLIB_BYTE_CONTENTS_GMUTEX${ac_dC}0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0${ac_dD}
 ${ac_uA}GLIB_BYTE_CONTENTS_GMUTEX${ac_uB}GLIB_BYTE_CONTENTS_GMUTEX${ac_uC}0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0${ac_uD}
 ${ac_eA}GLIB_BYTE_CONTENTS_GMUTEX${ac_eB}GLIB_BYTE_CONTENTS_GMUTEX${ac_eC}0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0${ac_eD}
+${ac_dA}HAVE_POLL${ac_dB}HAVE_POLL${ac_dC}1${ac_dD}
+${ac_uA}HAVE_POLL${ac_uB}HAVE_POLL${ac_uC}1${ac_uD}
+${ac_eA}HAVE_POLL${ac_eB}HAVE_POLL${ac_eC}1${ac_eD}
 s%^[ 	]*#[ 	]*undef[ 	][ 	]*[a-zA-Z_][a-zA-Z_0-9]*%/* & */%
 CEOF
   sed -f conftest.frag conftest.in > conftest.out

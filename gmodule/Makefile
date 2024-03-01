@@ -161,7 +161,7 @@ PROGRAMS =  $(noinst_PROGRAMS)
 testgmodule_SOURCES = testgmodule.c
 testgmodule_OBJECTS =  testgmodule.o
 testgmodule_DEPENDENCIES =  libgmodule.la
-CFLAGS = -g -O2 -Wall  -D_REENTRANT
+CFLAGS = -g -O2 -Wall
 COMPILE = $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
