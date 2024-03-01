@@ -32,6 +32,7 @@
 #include	"gmoduleconf.h"
 #include	<errno.h>
 #include	<string.h>
+#include	<glib.h>
 
 
 /* We maintain a list of modules, so we can reference count them.

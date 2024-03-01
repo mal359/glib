@@ -16,7 +16,7 @@ SHELL = /bin/sh
 
 srcdir = .
 top_srcdir = ..
-prefix = /usr/local
+prefix = /usr
 exec_prefix = ${prefix}
 
 bindir = ${exec_prefix}/bin
@@ -26,7 +26,7 @@ datadir = ${prefix}/share
 sysconfdir = ${prefix}/etc
 sharedstatedir = ${prefix}/com
 localstatedir = ${prefix}/var
-libdir = ${exec_prefix}/lib
+libdir = /usr/lib/x86_64-linux-gnu
 infodir = ${prefix}/info
 mandir = ${prefix}/man
 includedir = ${prefix}/include
@@ -68,9 +68,9 @@ GLIB_BINARY_AGE = 10
 GLIB_DEBUG_FLAGS = 
 GLIB_INTERFACE_AGE = 10
 GLIB_MAJOR_VERSION = 1
-GLIB_MICRO_VERSION = 10
+GLIB_MICRO_VERSION = 23
 GLIB_MINOR_VERSION = 2
-GLIB_VERSION = 1.2.10
+GLIB_VERSION = 1.2.23
 G_MODULE_BROKEN_RTLD_GLOBAL = 0
 G_MODULE_HAVE_DLERROR = 1
 G_MODULE_IMPL = G_MODULE_IMPL_DL
@@ -82,7 +82,7 @@ G_THREAD_LIBS = -lpthread
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LN_S = ln -s
 LT_AGE = 0
-LT_CURRENT = 0
+LT_CURRENT = 13
 LT_RELEASE = 1.2
 LT_REVISION = 10
 MAINT = #
@@ -90,7 +90,7 @@ MAKEINFO = makeinfo
 OBJDUMP = @OBJDUMP@
 PACKAGE = glib
 RANLIB = ranlib
-VERSION = 1.2.10
+VERSION = 1.2.23
 
 INCLUDES = -I$(top_srcdir)
 

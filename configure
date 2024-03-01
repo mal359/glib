@@ -5385,9 +5385,12 @@ echo "configure:5361: checking whether pthread_getspecific is posix like" >&5
 #line 5364 "configure"
 #include "confdefs.h"
 #include <pthread.h>
+#include <stdio.h>
 int main() {
-pthread_getspecific(0, NULL);
-; return 0; }
+pthread_key_t key;
+
+pthread_getspecific(key);
+return 0; }
 EOF
 if { (eval echo configure:5371: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>&5; }; then
   rm -rf conftest*
@@ -5446,6 +5449,7 @@ else
 #include "confdefs.h"
 #include <pthread.h>
 #include <sys/types.h>
+#include <sys/time.h>
 			int main () { 
 			pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 			pthread_cond_t cond = PTHREAD_COND_INITIALIZER;

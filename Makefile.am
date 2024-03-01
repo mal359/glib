@@ -80,6 +80,7 @@ stamp-gc-h: config.status
 libglib_la_LDFLAGS = \
 	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
 	-release $(LT_RELEASE) \
+	-no-undefined \
 	-export-dynamic
 
 noinst_PROGRAMS = testglib testgdate testgdateparser

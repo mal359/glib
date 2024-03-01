@@ -30,16 +30,14 @@ libgmodule_la_LDFLAGS = \
 	-no-undefined -Wl,--no-undefined \
 	-export-dynamic
 
-libgmodule_la_LIBADD = @G_MODULE_LIBS@ # $(libglib)
-# we should really depend on $(libglib) for libgmodule.la, but libtool has a
-# problem with this ;(
+libgmodule_la_LIBADD = @G_MODULE_LIBS@ $(libglib)
 
 libgplugin_a_la_SOURCES = libgplugin_a.c
-libgplugin_a_la_LDFLAGS = @G_MODULE_LDFLAGS@ -avoid-version -module
-libgplugin_a_la_LIBADD = @G_MODULE_LIBS@ $(libglib)
+libgplugin_a_la_LDFLAGS = @G_MODULE_LDFLAGS@ -avoid-version -module -no-undefined
+libgplugin_a_la_LIBADD = libgmodule.la @G_MODULE_LIBS@ $(libglib)
 
 libgplugin_b_la_SOURCES = libgplugin_b.c
-libgplugin_b_la_LDFLAGS = @G_MODULE_LDFLAGS@ -avoid-version -module
+libgplugin_b_la_LDFLAGS = @G_MODULE_LDFLAGS@ -avoid-version -module -no-undefined
 libgplugin_b_la_LIBADD = @G_MODULE_LIBS@ $(libglib)
 
 noinst_PROGRAMS = testgmodule

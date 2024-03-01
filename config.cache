@@ -19,7 +19,7 @@ ac_cv_func_atexit=${ac_cv_func_atexit='yes'}
 ac_cv_func_dlerror=${ac_cv_func_dlerror='yes'}
 ac_cv_func_dlopen=${ac_cv_func_dlopen='yes'}
 ac_cv_func_dlsym=${ac_cv_func_dlsym='yes'}
-ac_cv_func_getpwuid_r=${ac_cv_func_getpwuid_r='no'}
+ac_cv_func_getpwuid_r=${ac_cv_func_getpwuid_r='yes'}
 ac_cv_func_iswalnum=${ac_cv_func_iswalnum='yes'}
 ac_cv_func_localtime_r=${ac_cv_func_localtime_r='yes'}
 ac_cv_func_lstat=${ac_cv_func_lstat='yes'}

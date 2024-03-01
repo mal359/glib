@@ -952,7 +952,7 @@ fi
 
 echo $ac_n "checking if $compiler static flag $link_static_flag works... $ac_c" 1>&6
 $rm conftest*
-echo 'main(){return(0);}' > conftest.c
+echo 'int main(){return(0);}' > conftest.c
 save_LDFLAGS="$LDFLAGS"
 LDFLAGS="$LDFLAGS $link_static_flag"
 echo "$progname:958: checking if $compiler static flag $link_static_flag works" >&5
@@ -1643,7 +1643,7 @@ void nm_test_func(){}
 #ifdef __cplusplus
 }
 #endif
-main(){nm_test_var='a';nm_test_func();return(0);}
+int main(){nm_test_var='a';nm_test_func();return(0);}
 EOF
 
   echo "$progname:1635: checking if global_symbol_pipe works" >&5
