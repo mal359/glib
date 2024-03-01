@@ -91,7 +91,7 @@ new_thread(GHookFunc func, gpointer data)
 #ifdef __sgi
   return GUINT_TO_POINTER (thread);
 #else
-  return thread;
+  return (gpointer)thread;
 #endif
 }
 
@@ -100,7 +100,7 @@ new_thread(GHookFunc func, gpointer data)
   pthread_join ((pthread_t)GPOINTER_TO_UINT (thread), NULL)
 #else
 #define join_thread(thread) \
-  pthread_join ((thread), NULL)
+  pthread_join ((pthread_t)(thread), NULL)
 #endif
 
 #define self_thread() GUINT_TO_POINTER (pthread_self ())

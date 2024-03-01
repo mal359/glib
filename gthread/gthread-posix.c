@@ -175,7 +175,7 @@ g_private_get_posix_impl (GPrivate * private_key)
 #else /* HAVE_PTHREAD_GETSPECIFIC_POSIX */
   {
     void* data;
-    pthread_getspecific (*(pthread_key_t *) private_key, &data);
+    data = pthread_getspecific (*(pthread_key_t *) private_key);
     return data;
   }
 #endif /* HAVE_PTHREAD_GETSPECIFIC_POSIX */
