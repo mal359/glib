@@ -22,7 +22,7 @@
 ## the same distribution terms that you use for the rest of that program.
 
 # serial 40 AC_PROG_LIBTOOL
-AC_DEFUN([AC_PROG_LIBTOOL],
+AC_DEFUN(AC_PROG_LIBTOOL,
 [AC_REQUIRE([AC_LIBTOOL_SETUP])dnl
 
 # Save cache, so that ltconfig can load it

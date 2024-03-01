@@ -38,7 +38,7 @@ DESTDIR =
 
 pkgdatadir = $(datadir)/@PACKAGE@
 pkglibdir = $(libdir)/@PACKAGE@
-pkgincludedir = $(includedir)/@PACKAGE@
+pkgincludedir = $(includedir)/@PACKAGE@-@GLIB_MAJOR_VERSION@.@GLIB_MINOR_VERSION@
 
 top_builddir = .
 
@@ -98,7 +98,7 @@ AUTOMAKE_OPTIONS = 1.4
 
 SUBDIRS = . gmodule gthread docs tests
 
-configincludedir = $(pkglibdir)/include
+configincludedir = $(includedir)/gliB
 
 bin_SCRIPTS = glib-config
 
@@ -166,7 +166,10 @@ configinclude_DATA = \
 
 CONFIGURE_DEPENDENCIES = acglib.m4		
 
-libglib_la_LDFLAGS = -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) -export-dynamic
+libglib_la_LDFLAGS = \
+	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
+	-release $(LT_RELEASE) \
+	-export-dynamic
 
 
 noinst_PROGRAMS = testglib testgdate testgdateparser

@@ -73,19 +73,19 @@ s%@infodir@%${prefix}/info%g
 s%@mandir@%${prefix}/man%g
 s%@GLIB_MAJOR_VERSION@%1%g
 s%@GLIB_MINOR_VERSION@%2%g
-s%@GLIB_MICRO_VERSION@%23%g
-s%@GLIB_VERSION@%1.2.23%g
+s%@GLIB_MICRO_VERSION@%10%g
+s%@GLIB_VERSION@%1.2.10%g
 s%@GLIB_INTERFACE_AGE@%10%g
 s%@GLIB_BINARY_AGE@%10%g
 s%@LT_RELEASE@%1.2%g
-s%@LT_CURRENT@%13%g
+s%@LT_CURRENT@%0%g
 s%@LT_REVISION@%10%g
 s%@LT_AGE@%0%g
 s%@INSTALL_PROGRAM@%${INSTALL}%g
 s%@INSTALL_SCRIPT@%${INSTALL_PROGRAM}%g
 s%@INSTALL_DATA@%${INSTALL} -m 644%g
 s%@PACKAGE@%glib%g
-s%@VERSION@%1.2.23%g
+s%@VERSION@%1.2.10%g
 s%@ACLOCAL@%aclocal%g
 s%@AUTOCONF@%autoconf%g
 s%@AUTOMAKE@%automake%g
@@ -268,9 +268,9 @@ ${ac_eA}GLIB_MAJOR_VERSION${ac_eB}GLIB_MAJOR_VERSION${ac_eC}1${ac_eD}
 ${ac_dA}GLIB_MINOR_VERSION${ac_dB}GLIB_MINOR_VERSION${ac_dC}2${ac_dD}
 ${ac_uA}GLIB_MINOR_VERSION${ac_uB}GLIB_MINOR_VERSION${ac_uC}2${ac_uD}
 ${ac_eA}GLIB_MINOR_VERSION${ac_eB}GLIB_MINOR_VERSION${ac_eC}2${ac_eD}
-${ac_dA}GLIB_MICRO_VERSION${ac_dB}GLIB_MICRO_VERSION${ac_dC}23${ac_dD}
-${ac_uA}GLIB_MICRO_VERSION${ac_uB}GLIB_MICRO_VERSION${ac_uC}23${ac_uD}
-${ac_eA}GLIB_MICRO_VERSION${ac_eB}GLIB_MICRO_VERSION${ac_eC}23${ac_eD}
+${ac_dA}GLIB_MICRO_VERSION${ac_dB}GLIB_MICRO_VERSION${ac_dC}10${ac_dD}
+${ac_uA}GLIB_MICRO_VERSION${ac_uB}GLIB_MICRO_VERSION${ac_uC}10${ac_uD}
+${ac_eA}GLIB_MICRO_VERSION${ac_eB}GLIB_MICRO_VERSION${ac_eC}10${ac_eD}
 ${ac_dA}GLIB_INTERFACE_AGE${ac_dB}GLIB_INTERFACE_AGE${ac_dC}10${ac_dD}
 ${ac_uA}GLIB_INTERFACE_AGE${ac_uB}GLIB_INTERFACE_AGE${ac_uC}10${ac_uD}
 ${ac_eA}GLIB_INTERFACE_AGE${ac_eB}GLIB_INTERFACE_AGE${ac_eC}10${ac_eD}
@@ -496,6 +496,9 @@ CEOF
   mv conftest.out conftest.in
 
   cat > conftest.frag <<CEOF
+${ac_dA}REALLOC_0_WORKS${ac_dB}REALLOC_0_WORKS${ac_dC}1${ac_dD}
+${ac_uA}REALLOC_0_WORKS${ac_uB}REALLOC_0_WORKS${ac_uC}1${ac_uD}
+${ac_eA}REALLOC_0_WORKS${ac_eB}REALLOC_0_WORKS${ac_eC}1${ac_eD}
 ${ac_dA}G_VA_COPY${ac_dB}G_VA_COPY${ac_dC}va_copy${ac_dD}
 ${ac_uA}G_VA_COPY${ac_uB}G_VA_COPY${ac_uC}va_copy${ac_uD}
 ${ac_eA}G_VA_COPY${ac_eB}G_VA_COPY${ac_eC}va_copy${ac_eD}
@@ -505,15 +508,15 @@ ${ac_eA}G_VA_COPY_AS_ARRAY${ac_eB}G_VA_COPY_AS_ARRAY${ac_eC}1${ac_eD}
 ${ac_dA}HAVE_LOCALTIME_R${ac_dB}HAVE_LOCALTIME_R${ac_dC}1${ac_dD}
 ${ac_uA}HAVE_LOCALTIME_R${ac_uB}HAVE_LOCALTIME_R${ac_uC}1${ac_uD}
 ${ac_eA}HAVE_LOCALTIME_R${ac_eB}HAVE_LOCALTIME_R${ac_eC}1${ac_eD}
-${ac_dA}HAVE_RAND_R${ac_dB}HAVE_RAND_R${ac_dC}1${ac_dD}
-${ac_uA}HAVE_RAND_R${ac_uB}HAVE_RAND_R${ac_uC}1${ac_uD}
-${ac_eA}HAVE_RAND_R${ac_eB}HAVE_RAND_R${ac_eC}1${ac_eD}
 CEOF
   sed -f conftest.frag conftest.in > conftest.out
   rm -f conftest.in
   mv conftest.out conftest.in
 
   cat > conftest.frag <<CEOF
+${ac_dA}HAVE_RAND_R${ac_dB}HAVE_RAND_R${ac_dC}1${ac_dD}
+${ac_uA}HAVE_RAND_R${ac_uB}HAVE_RAND_R${ac_uC}1${ac_uD}
+${ac_eA}HAVE_RAND_R${ac_eB}HAVE_RAND_R${ac_eC}1${ac_eD}
 ${ac_dA}HAVE_PTHREAD_GETSPECIFIC_POSIX${ac_dB}HAVE_PTHREAD_GETSPECIFIC_POSIX${ac_dC}1${ac_dD}
 ${ac_uA}HAVE_PTHREAD_GETSPECIFIC_POSIX${ac_uB}HAVE_PTHREAD_GETSPECIFIC_POSIX${ac_uC}1${ac_uD}
 ${ac_eA}HAVE_PTHREAD_GETSPECIFIC_POSIX${ac_eB}HAVE_PTHREAD_GETSPECIFIC_POSIX${ac_eC}1${ac_eD}
@@ -523,15 +526,15 @@ ${ac_eA}HAVE_PTHREAD_MUTEX_TRYLOCK_POSIX${ac_eB}HAVE_PTHREAD_MUTEX_TRYLOCK_POSIX
 ${ac_dA}HAVE_PTHREAD_COND_TIMEDWAIT_POSIX${ac_dB}HAVE_PTHREAD_COND_TIMEDWAIT_POSIX${ac_dC}1${ac_dD}
 ${ac_uA}HAVE_PTHREAD_COND_TIMEDWAIT_POSIX${ac_uB}HAVE_PTHREAD_COND_TIMEDWAIT_POSIX${ac_uC}1${ac_uD}
 ${ac_eA}HAVE_PTHREAD_COND_TIMEDWAIT_POSIX${ac_eB}HAVE_PTHREAD_COND_TIMEDWAIT_POSIX${ac_eC}1${ac_eD}
-${ac_dA}G_THREAD_SOURCE${ac_dB}G_THREAD_SOURCE${ac_dC}"gthread-posix.c"${ac_dD}
-${ac_uA}G_THREAD_SOURCE${ac_uB}G_THREAD_SOURCE${ac_uC}"gthread-posix.c"${ac_uD}
-${ac_eA}G_THREAD_SOURCE${ac_eB}G_THREAD_SOURCE${ac_eC}"gthread-posix.c"${ac_eD}
 CEOF
   sed -f conftest.frag conftest.in > conftest.out
   rm -f conftest.in
   mv conftest.out conftest.in
 
   cat > conftest.frag <<CEOF
+${ac_dA}G_THREAD_SOURCE${ac_dB}G_THREAD_SOURCE${ac_dC}"gthread-posix.c"${ac_dD}
+${ac_uA}G_THREAD_SOURCE${ac_uB}G_THREAD_SOURCE${ac_uC}"gthread-posix.c"${ac_uD}
+${ac_eA}G_THREAD_SOURCE${ac_eB}G_THREAD_SOURCE${ac_eC}"gthread-posix.c"${ac_eD}
 ${ac_dA}GLIB_SIZEOF_GMUTEX${ac_dB}GLIB_SIZEOF_GMUTEX${ac_dC}40${ac_dD}
 ${ac_uA}GLIB_SIZEOF_GMUTEX${ac_uB}GLIB_SIZEOF_GMUTEX${ac_uC}40${ac_uD}
 ${ac_eA}GLIB_SIZEOF_GMUTEX${ac_eB}GLIB_SIZEOF_GMUTEX${ac_eC}40${ac_eD}
@@ -683,7 +686,7 @@ esac
 glib_defines="
 #define GLIB_MAJOR_VERSION 1
 #define GLIB_MINOR_VERSION 2
-#define GLIB_MICRO_VERSION 23
+#define GLIB_MICRO_VERSION 10
 "
 
 case xyes in

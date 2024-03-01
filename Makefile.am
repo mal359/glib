@@ -3,11 +3,9 @@
 # require automake 1.4
 AUTOMAKE_OPTIONS = 1.4
 
-ACLOCAL_AMFLAGS = -I m4
-
 SUBDIRS = . gmodule gthread docs tests
 
-configincludedir = $(pkglibdir)/include
+configincludedir = $(includedir)/@PACKAGE@-@GLIB_MAJOR_VERSION@.@GLIB_MINOR_VERSION@
 
 bin_SCRIPTS=glib-config
 BUILT_SOURCES=glib-config

@@ -30,8 +30,7 @@ libgmodule_la_LDFLAGS = \
 	-no-undefined -Wl,--no-undefined \
 	-export-dynamic
 
-libgmodule_la_DEPENDENCIES = $(libglib)
-libgmodule_la_LIBADD = @G_MODULE_LIBS@ $(libglib)
+libgmodule_la_LIBADD = @G_MODULE_LIBS@ # $(libglib)
 # we should really depend on $(libglib) for libgmodule.la, but libtool has a
 # problem with this ;(
 
@@ -44,7 +43,7 @@ libgplugin_b_la_LDFLAGS = @G_MODULE_LDFLAGS@ -avoid-version -module
 libgplugin_b_la_LIBADD = @G_MODULE_LIBS@ $(libglib)
 
 noinst_PROGRAMS = testgmodule
-testgmodule_LDFLAGS += @G_MODULE_LDFLAGS@
+testgmodule_LDFLAGS = @G_MODULE_LDFLAGS@
 testgmodule_LDADD = libgmodule.la @G_MODULE_LIBS@
 
 .PHONY: files release

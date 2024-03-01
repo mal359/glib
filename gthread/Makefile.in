@@ -107,8 +107,11 @@ libglib = $(top_builddir)/libglib.la # -lglib
 lib_LTLIBRARIES = libgthread.la
 
 libgthread_la_SOURCES = gthread.c
-libgthread_la_LDFLAGS = -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
-			-export-dynamic
+libgthread_la_LDFLAGS = \
+	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
+	-release $(LT_RELEASE) \
+	-no-undefined -Wl,--no-undefined \
+	-export-dynamic
 
 
 libgthread_la_DEPENDENCIES = $(libglib)
@@ -133,7 +136,7 @@ testgthread_SOURCES = testgthread.c
 testgthread_OBJECTS =  testgthread.o
 testgthread_DEPENDENCIES =  libgthread.la
 testgthread_LDFLAGS = 
-CFLAGS = @CFLAGS@ @G_THREAD_CFLAGS@
+CFLAGS = @CFLAGS@
 COMPILE = $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)

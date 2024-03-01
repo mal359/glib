@@ -68,9 +68,9 @@ GLIB_BINARY_AGE = 10
 GLIB_DEBUG_FLAGS = 
 GLIB_INTERFACE_AGE = 10
 GLIB_MAJOR_VERSION = 1
-GLIB_MICRO_VERSION = 23
+GLIB_MICRO_VERSION = 10
 GLIB_MINOR_VERSION = 2
-GLIB_VERSION = 1.2.23
+GLIB_VERSION = 1.2.10
 G_MODULE_BROKEN_RTLD_GLOBAL = 0
 G_MODULE_HAVE_DLERROR = 1
 G_MODULE_IMPL = G_MODULE_IMPL_DL
@@ -82,7 +82,7 @@ G_THREAD_LIBS = -lpthread
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LN_S = ln -s
 LT_AGE = 0
-LT_CURRENT = 13
+LT_CURRENT = 0
 LT_RELEASE = 1.2
 LT_REVISION = 10
 MAINT = #
@@ -90,7 +90,7 @@ MAKEINFO = makeinfo
 OBJDUMP = @OBJDUMP@
 PACKAGE = glib
 RANLIB = ranlib
-VERSION = 1.2.23
+VERSION = 1.2.10
 
 INCLUDES = -I$(top_srcdir) -I$(top_srcdir)/gthread -DG_LOG_DOMAIN=\"GThread\"
 
@@ -107,7 +107,11 @@ libglib = $(top_builddir)/libglib.la # -lglib
 lib_LTLIBRARIES = libgthread.la
 
 libgthread_la_SOURCES = gthread.c
-libgthread_la_LDFLAGS = -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)
+libgthread_la_LDFLAGS = \
+	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
+	-release $(LT_RELEASE) \
+	-no-undefined -Wl,--no-undefined \
+	-export-dynamic
 
 
 libgthread_la_DEPENDENCIES = $(libglib)

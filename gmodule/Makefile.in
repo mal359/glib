@@ -119,7 +119,10 @@ lib_LTLIBRARIES = libgmodule.la libgplugin_a.la libgplugin_b.la
 libgmodule_la_SOURCES = gmodule.c
 libgmodule_la_LDFLAGS = \
 	@G_MODULE_LDFLAGS@ \
-	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) -export-dynamic
+	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
+	-release $(LT_RELEASE) \
+	-no-undefined -Wl,--no-undefined \
+	-export-dynamic
 
 
 libgmodule_la_DEPENDENCIES = $(libglib)
