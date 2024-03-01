@@ -26,7 +26,7 @@ ac_default_prefix=/usr/local
 #
 GLIB_MAJOR_VERSION=1
 GLIB_MINOR_VERSION=2
-GLIB_MICRO_VERSION=10
+GLIB_MICRO_VERSION=23
 GLIB_INTERFACE_AGE=10
 GLIB_BINARY_AGE=10
 GLIB_VERSION=$GLIB_MAJOR_VERSION.$GLIB_MINOR_VERSION.$GLIB_MICRO_VERSION
@@ -3875,7 +3875,6 @@ cat > conftest.$ac_ext <<EOF
 #line 3872 "configure"
 #include "confdefs.h"
 #include <stdlib.h>
-int main() {
 
 #if (defined(HAVE_WCTYPE_H) || defined(HAVE_WCHAR_H))
 #  ifdef HAVE_WCTYPE_H
@@ -3888,6 +3887,7 @@ int main() {
 #else
 #  define iswalnum(c) ((wchar_t)(c) <= 0xFF && isalnum(c))
 #endif
+int main() {
 iswalnum((wchar_t) 0);
 
 ; return 0; }
@@ -5189,6 +5189,9 @@ G_THREAD_CFLAGS="$G_THREAD_CFLAGS -D_REENTRANT" # good default guess
             	        G_THREAD_CFLAGS="$G_THREAD_CFLAGS -mthreads"
 		fi
 		;;
+	*-dragonfly*)
+		G_THREAD_LIBS="-pthread"
+		;;
 	*-freebsd2.2*)
 		G_THREAD_CFLAGS="$G_THREAD_CFLAGS -D_THREAD_SAFE"
 
@@ -5293,7 +5296,7 @@ if eval "test \"`echo '$ac_cv_func_'$ac_func`\" = yes"; then
 EOF
  
 else
-  echo "$ac_t""no" 1>&6
+  echo "$ac_t""no" 1>&getpwuid_r6
 fi
 done
 
@@ -5350,9 +5353,9 @@ echo "configure:5329: checking whether getpwuid_r is posix like" >&5
 			cat > conftest.$ac_ext <<EOF
 #line 5333 "configure"
 #include "confdefs.h"
+#include <sys/types.h>
 #include <pwd.h>
-                                        #include <sys/types.h>
-                                        #include <stdlib.h>
+#include <stdlib.h>
 int main() {
 getpwuid_r((uid_t)0, NULL, NULL, (size_t)0, NULL);
 ; return 0; }
@@ -5383,7 +5386,7 @@ echo "configure:5361: checking whether pthread_getspecific is posix like" >&5
 #include "confdefs.h"
 #include <pthread.h>
 int main() {
-pthread_getspecific(0,NULL);
+pthread_getspecific(0, NULL);
 ; return 0; }
 EOF
 if { (eval echo configure:5371: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>&5; }; then
@@ -5410,6 +5413,8 @@ else
 #line 5392 "configure"
 #include "confdefs.h"
 #include <pthread.h>
+#include <sys/types.h>
+
 			pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 			int main () { 
 			return !pthread_mutex_trylock (&mutex); }
@@ -5440,6 +5445,7 @@ else
 #line 5422 "configure"
 #include "confdefs.h"
 #include <pthread.h>
+#include <sys/types.h>
 			int main () { 
 			pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 			pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
